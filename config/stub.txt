@@ -1,0 +1,11 @@
+gameloop
+read size:int
+loop size read row:word(10)
+write action
+
+INPUT
+size: The size of the board (6 or 9)
+row: A string representing a row of the board. '.' is empty, '0' is player 0, '1' is player 1.
+
+OUTPUT
+action: X Y BLOCK DIR (e.g. 4 3 2 R) or X Y SWAP B1 B2 (Silver league only)
