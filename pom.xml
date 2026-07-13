@@ -39,12 +39,13 @@
                 <version>3.6.3</version>
                 <configuration>
                     <executable>java</executable>
+                    <classpathScope>test</classpathScope>
                     <arguments>
                         <argument>--add-opens</argument>
                         <argument>java.base/java.lang=ALL-UNNAMED</argument>
-                        <argument>-cp</argument>
+                        <argument>-classpath</argument>
                         <classpath/>
-                        <argument>com.codingame.gameengine.runner.MultiplayerGameRunner</argument>
+                        <argument>SkeletonMain</argument>
                     </arguments>
                 </configuration>
             </plugin>
