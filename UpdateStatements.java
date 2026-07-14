@@ -150,10 +150,10 @@ public class UpdateStatements {
 "<div class=\"statement-body\">\n" +
 "    <div style=\"" + darkRibbonStyle + "\">\n" +
 "      <div style=\"font-size: 1.2em; margin-bottom: 10px;\">\n" +
-"        <strong>🏆 Welcome to the Final Arena!</strong>\n" +
+"        <strong>🏆 This is a multi-league puzzle!</strong>\n" +
 "      </div>\n" +
 "      <div>\n" +
-"        You are now in the <strong>Silver League</strong>.<br>\n" +
+"        You are now in the <strong>Silver League</strong>, the final arena.<br>\n" +
 "        The ultimate mechanic has been unlocked: <action>SWAP</action>. You can now exchange the physical positions of two blocks instead of rotating them!\n" +
 "      </div>\n" +
 "    </div>\n" +
@@ -222,7 +222,7 @@ public class UpdateStatements {
 "<div class=\"statement-body\">\n" +
 "    <div style=\"" + darkRibbonStyle + "\">\n" +
 "      <div style=\"font-size: 1.2em; margin-bottom: 10px;\">\n" +
-"        <strong>🏆 Welcome to the Gold League!</strong>\n" +
+"        <strong>🏆 This is a multi-league puzzle!</strong>\n" +
 "      </div>\n" +
 "      <div>\n" +
 "        You are now in the ultimate <strong>Gold League</strong>.<br>\n" +
