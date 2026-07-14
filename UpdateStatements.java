@@ -44,7 +44,7 @@ public class UpdateStatements {
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>3</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>5</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level1/coords_6x6.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
-"            <p>If multiple players form a line of 5 simultaneously, it's a draw between those players.</p>\n" +
+"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
 "    </div>\n" +
 "\n" +
@@ -115,6 +115,7 @@ public class UpdateStatements {
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
+"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
 "    </div>\n" +
 "\n" +
