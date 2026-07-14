@@ -237,16 +237,14 @@ public class Referee extends AbstractReferee {
                 }
                 
                 if (isSwap && !swapsAllowed) {
-                    player.deactivate("SWAP action is not allowed in this league.");
-                    player.setScore(-1);
+                    deactivatePlayer(player, "SWAP action is not allowed in this league.");
                     advanceTurn();
                     return;
                 }
 
                 boolean placed = board.place(x, y, player.getIndex());
                 if (!placed) {
-                    player.deactivate(String.format("Invalid placement at %d %d", x, y));
-                    player.setScore(-1);
+                    deactivatePlayer(player, String.format("Invalid placement at %d %d", x, y));
                 } else {
                     drawMarble(x, y, player.getIndex());
                     
@@ -255,8 +253,7 @@ public class Referee extends AbstractReferee {
                         int b2 = Integer.parseInt(mSwap.group(4));
                         boolean swapped = board.swap(b1, b2);
                         if (!swapped) {
-                            player.deactivate(String.format("Invalid swap blocks %d and %d", b1, b2));
-                            player.setScore(-1);
+                            deactivatePlayer(player, String.format("Invalid swap blocks %d and %d", b1, b2));
                         } else {
                             gameManager.addToGameSummary(player.getNicknameToken() + " played " + output);
                             playerActionTexts[player.getIndex()].setText(String.format("Played %d %d SWAP %d %d", x, y, b1, b2));
@@ -268,8 +265,7 @@ public class Referee extends AbstractReferee {
                         String dir = m.group(4);
                         boolean rotated = board.rotate(block, dir);
                         if (!rotated) {
-                            player.deactivate(String.format("Invalid rotation block %d dir %s", block, dir));
-                            player.setScore(-1);
+                            deactivatePlayer(player, String.format("Invalid rotation block %d dir %s", block, dir));
                         } else {
                             gameManager.addToGameSummary(player.getNicknameToken() + " played " + output);
                             playerActionTexts[player.getIndex()].setText(String.format("Played %d %d %d %s", x, y, block, dir));
@@ -279,16 +275,13 @@ public class Referee extends AbstractReferee {
                     }
                 }
             } else {
-                player.deactivate("Invalid output format: " + output);
-                player.setScore(-1);
+                deactivatePlayer(player, "Invalid output format: " + output);
             }
         } catch (TimeoutException e) {
-            player.deactivate("Timeout!");
-            player.setScore(-1);
+            deactivatePlayer(player, "Timeout!");
         } catch (Throwable e) {
             String msg = e.getMessage();
-            player.deactivate(msg != null ? msg : e.toString());
-            player.setScore(-1);
+            deactivatePlayer(player, msg != null ? msg : e.toString());
         }
 
         System.err.println("REFEREE: advancing turn...");
@@ -498,5 +491,11 @@ public class Referee extends AbstractReferee {
         graphicEntityModule.commitEntityState(0.7, clone);
         clone.setAlpha(1);
         graphicEntityModule.commitEntityState(0.8, clone);
+    }
+    
+    private void deactivatePlayer(Player player, String message) {
+        player.deactivate(message);
+        player.setScore(-1);
+        gameManager.addToGameSummary(player.getNicknameToken() + " disqualified: " + message);
     }
 }
