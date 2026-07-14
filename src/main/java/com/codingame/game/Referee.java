@@ -131,6 +131,15 @@ public class Referee extends AbstractReferee {
             int x = (idx % 2 == 0) ? 250 : 1920 - 250;
             int y = (idx < 2) ? 300 : 1080 - 300;
 
+            graphicEntityModule.createSprite()
+                    .setImage("frame_" + idx + ".png")
+                    .setX(x)
+                    .setY(y - 100)
+                    .setAnchor(0.5)
+                    .setBaseWidth(180)
+                    .setBaseHeight(180)
+                    .setZIndex(-5);
+
             String avatar = p.getAvatarToken();
             if (avatar != null) {
                 graphicEntityModule.createSprite()
@@ -140,7 +149,8 @@ public class Referee extends AbstractReferee {
                         .setAnchorX(0.5)
                         .setAnchorY(0.5)
                         .setBaseWidth(150)
-                        .setBaseHeight(150);
+                        .setBaseHeight(150)
+                        .setZIndex(0);
             }
 
             String nickname = p.getNicknameToken();
@@ -149,7 +159,7 @@ public class Referee extends AbstractReferee {
                     .setY(y + 20)
                     .setAnchorX(0.5)
                     .setFontSize(40)
-                    .setFillColor(p.getColorToken());
+                    .setFillColor(PLAYER_COLORS[idx]);
                     
             playerActionTexts[idx] = graphicEntityModule.createText("Waiting...")
                     .setX(x)

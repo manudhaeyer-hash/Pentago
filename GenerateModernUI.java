@@ -100,6 +100,33 @@ public class GenerateModernUI {
         
         g2.dispose();
         ImageIO.write(bg, "jpg", new File("modern_bg.jpg"));
+        
+        // Generate Player Frames
+        Color[] playerColors = {new Color(0xff, 0x44, 0x44), new Color(0x44, 0x44, 0xff), new Color(0x44, 0xff, 0x44), new Color(0xff, 0xff, 0x44)};
+        for (int p = 0; p < 4; p++) {
+            int frameSize = 180;
+            BufferedImage frame = new BufferedImage(frameSize, frameSize, BufferedImage.TYPE_INT_ARGB);
+            Graphics2D gf = frame.createGraphics();
+            gf.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            
+            // Outer glowing border
+            gf.setStroke(new BasicStroke(6));
+            gf.setColor(new Color(playerColors[p].getRed(), playerColors[p].getGreen(), playerColors[p].getBlue(), 200));
+            gf.drawRoundRect(3, 3, frameSize-6, frameSize-6, 30, 30);
+            
+            // Inner metallic border
+            gf.setStroke(new BasicStroke(3));
+            gf.setPaint(new GradientPaint(0, 0, Color.WHITE, frameSize, frameSize, playerColors[p]));
+            gf.drawRoundRect(8, 8, frameSize-16, frameSize-16, 25, 25);
+            
+            // Inner shadow background (to make avatar pop)
+            gf.setColor(new Color(0, 0, 0, 150));
+            gf.fillRoundRect(10, 10, frameSize-20, frameSize-20, 22, 22);
+            
+            gf.dispose();
+            ImageIO.write(frame, "png", new File("frame_" + p + ".png"));
+        }
+        
         System.out.println("Generated high-end modern UI!");
     }
 }

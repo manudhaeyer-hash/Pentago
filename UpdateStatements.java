@@ -218,9 +218,82 @@ public class UpdateStatements {
 "    </div>\n" +
 "</div>";
 
+        String baseL4 = 
+"<div class=\"statement-body\">\n" +
+"    <div style=\"" + darkRibbonStyle + "\">\n" +
+"      <div style=\"font-size: 1.2em; margin-bottom: 10px;\">\n" +
+"        <strong>🏆 Welcome to the Gold League!</strong>\n" +
+"      </div>\n" +
+"      <div>\n" +
+"        You are now in the ultimate <strong>Gold League</strong>.<br>\n" +
+"        The rules remain identical, but your opponents (and the Boss) will be much stronger. Good luck!\n" +
+"      </div>\n" +
+"    </div>\n" +
+"\n" +
+"    <div class=\"statement-section statement-goal\">\n" +
+"        <h1>\n" +
+"            <span class=\"icon icon-goal\">&nbsp;</span>\n" +
+"            <span>Goal</span>\n" +
+"        </h1>\n" +
+"        <div class=\"statement-goal-content\">\n" +
+"            <p>\n" +
+"                Be the first player to form a line of 5 of your marbles either horizontally, vertically, or diagonally.<br>\n" +
+"                This puzzle is based on the official board game <a href=\"https://en.wikipedia.org/wiki/Pentago\" target=\"_blank\">Pentago</a>.\n" +
+"            </p>\n" +
+"        </div>\n" +
+"    </div>\n" +
+"\n" +
+"    <div class=\"statement-section statement-rules\">\n" +
+"        <h1>\n" +
+"            <span class=\"icon icon-rules\">&nbsp;</span>\n" +
+"            <span>Rules</span>\n" +
+"        </h1>\n" +
+"        <div class=\"statement-rules-content\">\n" +
+"            <p>On your turn, you must perform exactly two actions:</p>\n" +
+"            <ol>\n" +
+"                <li><strong>Place a marble</strong> on any empty space on the grid.</li>\n" +
+"                <li><strong>Manipulate the board</strong> using ONE of the following methods:</li>\n" +
+"                <ul>\n" +
+"                    <li><strong>Rotate</strong> a 3x3 block 90 degrees either left or right.</li>\n" +
+"                    <li><strong>Swap</strong> the physical positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>\n" +
+"                </ul>\n" +
+"            </ol>\n" +
+"            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
+"            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
+"        </div>\n" +
+"    </div>\n" +
+"\n" +
+"    <div class=\"statement-section statement-protocol\">\n" +
+"        <h1>\n" +
+"            <span class=\"icon icon-protocol\">&nbsp;</span>\n" +
+"            <span>Game Input/Output</span>\n" +
+"        </h1>\n" +
+"        <div class=\"blk\">\n" +
+"            <div class=\"title\">Input for one game turn</div>\n" +
+"            <div class=\"text\">\n" +
+"                <p><span class=\"statement-lineno\">Line 1: </span><var>size</var>, the size of the board (<const>9</const>).</p>\n" +
+"                <p>Next <var>size</var> lines: strings representing the grid state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>\n" +
+"            </div>\n" +
+"        </div>\n" +
+"        <div class=\"blk\">\n" +
+"            <div class=\"title\">Output for one game turn</div>\n" +
+"            <div class=\"text\">\n" +
+"                <span class=\"statement-lineno\">Option A (Rotate): </span> <var>x</var> <var>y</var> <var>block</var> <var>dir</var>\n" +
+"                <br>\n" +
+"                <var>dir</var> is <action>L</action> or <action>R</action>.\n" +
+"                <br><br>\n" +
+"                <span class=\"statement-lineno\">Option B (Swap): </span> <var>x</var> <var>y</var> <action>SWAP</action> <var>b1</var> <var>b2</var>\n" +
+"                <br>\n" +
+"                <var>b1</var> and <var>b2</var> are the IDs of the two adjacent blocks you wish to swap.\n" +
+"            </div>\n" +
+"        </div>\n" +
+"    </div>\n" +
+"</div>";
+
         Files.write(Paths.get("config/level1/statement_en.html"), baseL1.getBytes("UTF-8"));
         Files.write(Paths.get("config/level2/statement_en.html"), baseL2.getBytes("UTF-8"));
         Files.write(Paths.get("config/level3/statement_en.html"), baseL3.getBytes("UTF-8"));
+        Files.write(Paths.get("config/level4/statement_en.html"), baseL4.getBytes("UTF-8"));
         System.out.println("Done updating statements.");
     }
 }
