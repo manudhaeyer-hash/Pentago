@@ -74,6 +74,10 @@ public class UpdateStatements {
 "            </div>\n" +
 "        </div>\n" +
 "    </div>\n" +
+"    <br>\n" +
+"    <div style=\"text-align: center; color: #888; font-size: 0.9em;\">\n" +
+"        If you want to understand all the mechanics in detail, you can find the <a href=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/src/main/java/com/codingame/game/Referee.java\" target=\"_blank\">Referee source code here</a>.\n" +
+"    </div>\n" +
 "</div>";
 
         String baseL2 = 
@@ -145,6 +149,10 @@ public class UpdateStatements {
 "            </div>\n" +
 "        </div>\n" +
 "    </div>\n" +
+"    <br>\n" +
+"    <div style=\"text-align: center; color: #888; font-size: 0.9em;\">\n" +
+"        If you want to understand all the mechanics in detail, you can find the <a href=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/src/main/java/com/codingame/game/Referee.java\" target=\"_blank\">Referee source code here</a>.\n" +
+"    </div>\n" +
 "</div>";
 
         String baseL3 = 
@@ -189,6 +197,7 @@ public class UpdateStatements {
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
+"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
 "    </div>\n" +
 "\n" +
@@ -216,6 +225,10 @@ public class UpdateStatements {
 "                <var>b1</var> and <var>b2</var> are the IDs of the two adjacent blocks you wish to swap.\n" +
 "            </div>\n" +
 "        </div>\n" +
+"    </div>\n" +
+"    <br>\n" +
+"    <div style=\"text-align: center; color: #888; font-size: 0.9em;\">\n" +
+"        If you want to understand all the mechanics in detail, you can find the <a href=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/src/main/java/com/codingame/game/Referee.java\" target=\"_blank\">Referee source code here</a>.\n" +
 "    </div>\n" +
 "</div>";
 
@@ -261,6 +274,7 @@ public class UpdateStatements {
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
+"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
 "    </div>\n" +
 "\n" +
@@ -288,6 +302,10 @@ public class UpdateStatements {
 "                <var>b1</var> and <var>b2</var> are the IDs of the two adjacent blocks you wish to swap.\n" +
 "            </div>\n" +
 "        </div>\n" +
+"    </div>\n" +
+"    <br>\n" +
+"    <div style=\"text-align: center; color: #888; font-size: 0.9em;\">\n" +
+"        If you want to understand all the mechanics in detail, you can find the <a href=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/src/main/java/com/codingame/game/Referee.java\" target=\"_blank\">Referee source code here</a>.\n" +
 "    </div>\n" +
 "</div>";
 
