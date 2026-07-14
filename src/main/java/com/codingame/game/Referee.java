@@ -325,8 +325,9 @@ public class Referee extends AbstractReferee {
         } else {
             marbleSprite.setImage("blue_marble.png");
         }
-        marbleSprite.setAlpha(1);
+        graphicEntityModule.commitEntityState(0.0, marbleSprite);
         
+        marbleSprite.setAlpha(1);
         graphicEntityModule.commitEntityState(0.5, marbleSprite);
     }
 
