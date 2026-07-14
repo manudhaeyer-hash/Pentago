@@ -1,4 +1,15 @@
 <div class="statement-body">
+    <div class="statement-league-alert" id="league_level_information">
+      <div class="league-alert-title">
+        <span class="icon icon-info"></span>
+        <strong>Welcome to the Final Arena!</strong>
+      </div>
+      <div class="league-alert-content">
+        You are now in the <strong>Silver League</strong>.<br>
+        The ultimate mechanic has been unlocked: <action>SWAP</action>. You can now exchange the physical positions of two blocks instead of rotating them!
+      </div>
+    </div>
+
     <div class="statement-section statement-goal">
         <h1>
             <span class="icon icon-goal">&nbsp;</span>
@@ -7,12 +18,7 @@
         <div class="statement-goal-content">
             <p>
                 Be the first player to form a line of 5 of your marbles either horizontally, vertically, or diagonally.
-            </p>
-            <p>
-                <strong>Welcome to the final Arena!</strong> You are playing on a massive <strong>9x9 grid</strong> against an opponent.
-            </p>
-            <p>
-                A new game-changing mechanic has been introduced: <strong>SWAP</strong>. You can now physically exchange the positions of two adjacent 3x3 blocks instead of rotating a block!
+                This puzzle is based on the official board game <a href="https://en.wikipedia.org/wiki/Pentago" target="_blank">Pentago</a>.
             </p>
         </div>
     </div>
@@ -32,7 +38,7 @@
                     <li><strong>Swap</strong> the physical positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>
                 </ul>
             </ol>
-            <p>Blocks are numbered 0 to 8, and coordinates x, y from 0 to 8 as shown below:</p>
+            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>
             <img src="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png" style="width: 100%; max-width: 500px; display: block; margin: 10px auto;" />
         </div>
     </div>
@@ -42,23 +48,21 @@
             <span class="icon icon-protocol">&nbsp;</span>
             <span>Game Input/Output</span>
         </h1>
-
         <div class="blk">
             <div class="title">Input for one game turn</div>
             <div class="text">
-                <p><span class="statement-lineno">Line 1: </span><code>size</code>, the size of the board (9).</p>
-                <p>Next <code>size</code> lines: strings representing the grid state. A <code>.</code> means empty. A number <code>0-1</code> represents a player's marble.</p>
+                <p><span class="statement-lineno">Line 1: </span><var>size</var>, the size of the board (<const>9</const>).</p>
+                <p>Next <var>size</var> lines: strings representing the grid state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>
             </div>
         </div>
-
         <div class="blk">
             <div class="title">Output for one game turn</div>
             <div class="text">
                 <span class="statement-lineno">Option A (Rotate): </span> <var>x</var> <var>y</var> <var>block</var> <var>dir</var>
                 <br>
-                <var>dir</var> is <code>L</code> or <code>R</code>.
+                <var>dir</var> is <action>L</action> or <action>R</action>.
                 <br><br>
-                <span class="statement-lineno">Option B (Swap): </span> <var>x</var> <var>y</var> SWAP <var>b1</var> <var>b2</var>
+                <span class="statement-lineno">Option B (Swap): </span> <var>x</var> <var>y</var> <action>SWAP</action> <var>b1</var> <var>b2</var>
                 <br>
                 <var>b1</var> and <var>b2</var> are the IDs of the two adjacent blocks you wish to swap.
             </div>

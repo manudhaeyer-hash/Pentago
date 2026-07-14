@@ -1,4 +1,15 @@
 <div class="statement-body">
+    <div class="statement-league-alert" id="league_level_information">
+      <div class="league-alert-title">
+        <span class="icon icon-info"></span>
+        <strong>This is a multi-league puzzle!</strong>
+      </div>
+      <div class="league-alert-content">
+        Welcome to the <strong>Wood League</strong>! The game is simplified for you to learn the basics.<br>
+        You play in a 1v1 duel on a 6x6 grid. Later leagues will unlock the massive 9x9 grid, up to 4 players, and a mind-bending SWAP mechanic!
+      </div>
+    </div>
+
     <div class="statement-section statement-goal">
         <h1>
             <span class="icon icon-goal">&nbsp;</span>
@@ -7,9 +18,7 @@
         <div class="statement-goal-content">
             <p>
                 Be the first player to form a line of 5 of your marbles either horizontally, vertically, or diagonally.
-            </p>
-            <p>
-                This is the Wood League. The game is played in a 1v1 duel on a <strong>6x6 grid</strong> made of 4 rotating 3x3 blocks. 
+                This puzzle is based on the official board game <a href="https://en.wikipedia.org/wiki/Pentago" target="_blank">Pentago</a>.
             </p>
         </div>
     </div>
@@ -25,7 +34,7 @@
                 <li><strong>Place a marble</strong> on any empty space on the grid.</li>
                 <li><strong>Rotate a 3x3 block</strong> 90 degrees either left (counter-clockwise) or right (clockwise).</li>
             </ol>
-            <p>Blocks are numbered 0 to 3, and coordinates x, y from 0 to 5 as shown below:</p>
+            <p>Blocks are numbered <const>0</const> to <const>3</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>5</const> as shown below:</p>
             <img src="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level1/coords_6x6.png" style="width: 100%; max-width: 400px; display: block; margin: 10px auto;" />
             <p>If multiple players form a line of 5 simultaneously, it's a draw between those players.</p>
         </div>
@@ -36,15 +45,13 @@
             <span class="icon icon-protocol">&nbsp;</span>
             <span>Game Input/Output</span>
         </h1>
-
         <div class="blk">
             <div class="title">Input for one game turn</div>
             <div class="text">
-                <p><span class="statement-lineno">Line 1: </span><code>size</code>, the size of the board (6).</p>
-                <p>Next <code>size</code> lines: strings representing the grid state. A <code>.</code> means empty. A number <code>0-1</code> represents a player's marble.</p>
+                <p><span class="statement-lineno">Line 1: </span><var>size</var>, the size of the board (<const>6</const>).</p>
+                <p>Next <var>size</var> lines: strings representing the grid state. A <code>.</code> means empty. A number <const>0</const>-<const>1</const> represents a player's marble.</p>
             </div>
         </div>
-
         <div class="blk">
             <div class="title">Output for one game turn</div>
             <div class="text">
@@ -53,9 +60,9 @@
                 <br>
                 <var>x</var>, <var>y</var>: Coordinates to place your marble.
                 <br>
-                <var>block</var>: The ID of the block you wish to rotate (0 to 3).
+                <var>block</var>: The ID of the block you wish to rotate (<const>0</const> to <const>3</const>).
                 <br>
-                <var>dir</var>: The direction to rotate (<code>L</code> or <code>R</code>).
+                <var>dir</var>: The direction to rotate (<action>L</action> or <action>R</action>).
             </div>
         </div>
     </div>
