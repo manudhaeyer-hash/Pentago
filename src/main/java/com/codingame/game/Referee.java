@@ -103,15 +103,6 @@ public class Referee extends AbstractReferee {
                     int cx = -blockSize/2 + j * cellSize + cellSize/2;
                     int cy = -blockSize/2 + i * cellSize + cellSize/2;
                     
-                    // Procedural hole shadow
-                    group.add(graphicEntityModule.createCircle()
-                            .setRadius(cellSize/2 - 5)
-                            .setX(cx)
-                            .setY(cy)
-                            .setFillColor(0x1a0f00)
-                            .setAlpha(0.8)
-                            .setZIndex(-5));
-                            
                     // 3D Glass Marble Effect
                     Sprite marbleSprite = graphicEntityModule.createSprite()
                             .setImage("red_marble.png")
