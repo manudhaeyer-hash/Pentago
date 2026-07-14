@@ -5,7 +5,7 @@
       </div>
       <div>
         Welcome to the <strong>Bronze League</strong>! The training wheels are off.<br>
-        The board has expanded to a massive 9x9 grid, and you are now facing up to 3 opponents simultaneously in a Free-For-All!
+        The board has expanded to a massive 9x9 board, and you are now facing up to 3 opponents simultaneously in a Free-For-All!
       </div>
     </div>
 
@@ -30,12 +30,12 @@
         <div class="statement-rules-content">
             <p>On your turn, you must perform exactly two actions:</p>
             <ol>
-                <li><strong>Place a marble</strong> on any empty space on the grid.</li>
+                <li><strong>Place a marble</strong> on any empty space on the board.</li>
                 <li><strong>Rotate a 3x3 block</strong> 90 degrees either left (counter-clockwise) or right (clockwise).</li>
             </ol>
             <p><span style="background-color: rgba(76, 175, 80, 0.3); padding: 2px 4px; border-radius: 4px;">Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</span></p>
             <img src="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png" style="width: 100%; max-width: 500px; display: block; margin: 10px auto;" />
-            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>
+            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>
         </div>
     </div>
 
@@ -48,7 +48,7 @@
             <div class="title">Input for one game turn</div>
             <div class="text">
                 <p><span class="statement-lineno">Line 1: </span><var>size</var>, the size of the board (<const>9</const>).</p>
-                <p>Next <var>size</var> lines: strings representing the grid state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>
+                <p>Next <var>size</var> lines: strings representing the board state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>
             </div>
         </div>
         <div class="blk">

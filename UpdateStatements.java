@@ -39,12 +39,12 @@ public class UpdateStatements {
 "        <div class=\"statement-rules-content\">\n" +
 "            <p>On your turn, you must perform exactly two actions:</p>\n" +
 "            <ol>\n" +
-"                <li><strong>Place a marble</strong> on any empty space on the grid.</li>\n" +
+"                <li><strong>Place a marble</strong> on any empty space on the board.</li>\n" +
 "                <li><strong>Rotate a 3x3 block</strong> 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>3</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>5</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level1/coords_6x6.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
+"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
 "    </div>\n" +
 "\n" +
@@ -57,7 +57,7 @@ public class UpdateStatements {
 "            <div class=\"title\">Input for one game turn</div>\n" +
 "            <div class=\"text\">\n" +
 "                <p><span class=\"statement-lineno\">Line 1: </span><var>size</var>, the size of the board (<const>6</const>).</p>\n" +
-"                <p>Next <var>size</var> lines: strings representing the grid state. A <code>.</code> means empty. A number <const>0</const>-<const>1</const> represents a player's marble.</p>\n" +
+"                <p>Next <var>size</var> lines: strings representing the board state. A <code>.</code> means empty. A number <const>0</const>-<const>1</const> represents a player's marble.</p>\n" +
 "            </div>\n" +
 "        </div>\n" +
 "        <div class=\"blk\">\n" +
@@ -90,7 +90,7 @@ public class UpdateStatements {
 "      </div>\n" +
 "      <div>\n" +
 "        Welcome to the <strong>Bronze League</strong>! The training wheels are off.<br>\n" +
-"        The board has expanded to a massive 9x9 grid, and you are now facing up to 3 opponents simultaneously in a Free-For-All!\n" +
+"        The board has expanded to a massive 9x9 board, and you are now facing up to 3 opponents simultaneously in a Free-For-All!\n" +
 "      </div>\n" +
 "    </div>\n" +
 "\n" +
@@ -115,12 +115,12 @@ public class UpdateStatements {
 "        <div class=\"statement-rules-content\">\n" +
 "            <p>On your turn, you must perform exactly two actions:</p>\n" +
 "            <ol>\n" +
-"                <li><strong>Place a marble</strong> on any empty space on the grid.</li>\n" +
+"                <li><strong>Place a marble</strong> on any empty space on the board.</li>\n" +
 "                <li><strong>Rotate a 3x3 block</strong> 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
 "            </ol>\n" +
 "            <p><span style=\"background-color: rgba(76, 175, 80, 0.3); padding: 2px 4px; border-radius: 4px;\">Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</span></p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
+"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
 "    </div>\n" +
 "\n" +
@@ -133,7 +133,7 @@ public class UpdateStatements {
 "            <div class=\"title\">Input for one game turn</div>\n" +
 "            <div class=\"text\">\n" +
 "                <p><span class=\"statement-lineno\">Line 1: </span><var>size</var>, the size of the board (<const>9</const>).</p>\n" +
-"                <p>Next <var>size</var> lines: strings representing the grid state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>\n" +
+"                <p>Next <var>size</var> lines: strings representing the board state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>\n" +
 "            </div>\n" +
 "        </div>\n" +
 "        <div class=\"blk\">\n" +
@@ -191,7 +191,7 @@ public class UpdateStatements {
 "        <div class=\"statement-rules-content\">\n" +
 "            <p>On your turn, you must perform exactly two actions:</p>\n" +
 "            <ol>\n" +
-"                <li><strong>Place a marble</strong> on any empty space on the grid.</li>\n" +
+"                <li><strong>Place a marble</strong> on any empty space on the board.</li>\n" +
 "                <li><strong>Manipulate the board</strong> using ONE of the following methods:</li>\n" +
 "                <ul>\n" +
 "                    <li><strong>Rotate</strong> a 3x3 block 90 degrees either left or right.</li>\n" +
@@ -200,7 +200,7 @@ public class UpdateStatements {
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
+"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
 "    </div>\n" +
 "\n" +
@@ -213,7 +213,7 @@ public class UpdateStatements {
 "            <div class=\"title\">Input for one game turn</div>\n" +
 "            <div class=\"text\">\n" +
 "                <p><span class=\"statement-lineno\">Line 1: </span><var>size</var>, the size of the board (<const>9</const>).</p>\n" +
-"                <p>Next <var>size</var> lines: strings representing the grid state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>\n" +
+"                <p>Next <var>size</var> lines: strings representing the board state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>\n" +
 "            </div>\n" +
 "        </div>\n" +
 "        <div class=\"blk\">\n" +
@@ -272,7 +272,7 @@ public class UpdateStatements {
 "        <div class=\"statement-rules-content\">\n" +
 "            <p>On your turn, you must perform exactly two actions:</p>\n" +
 "            <ol>\n" +
-"                <li><strong>Place a marble</strong> on any empty space on the grid.</li>\n" +
+"                <li><strong>Place a marble</strong> on any empty space on the board.</li>\n" +
 "                <li><strong>Manipulate the board</strong> using ONE of the following methods:</li>\n" +
 "                <ul>\n" +
 "                    <li><strong>Rotate</strong> a 3x3 block 90 degrees either left or right.</li>\n" +
@@ -281,7 +281,7 @@ public class UpdateStatements {
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
+"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
 "    </div>\n" +
 "\n" +
@@ -294,7 +294,7 @@ public class UpdateStatements {
 "            <div class=\"title\">Input for one game turn</div>\n" +
 "            <div class=\"text\">\n" +
 "                <p><span class=\"statement-lineno\">Line 1: </span><var>size</var>, the size of the board (<const>9</const>).</p>\n" +
-"                <p>Next <var>size</var> lines: strings representing the grid state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>\n" +
+"                <p>Next <var>size</var> lines: strings representing the board state. A <code>.</code> means empty. A number <const>0</const>-<const>3</const> represents a player's marble.</p>\n" +
 "            </div>\n" +
 "        </div>\n" +
 "        <div class=\"blk\">\n" +
