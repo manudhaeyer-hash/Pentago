@@ -118,7 +118,7 @@ public class UpdateStatements {
 "                <li><strong>Place a marble</strong> on any empty space on the grid.</li>\n" +
 "                <li><strong>Rotate a 3x3 block</strong> 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
 "            </ol>\n" +
-"            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
+"            <p><span style=\"background-color: rgba(76, 175, 80, 0.3); padding: 2px 4px; border-radius: 4px;\">Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</span></p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
 "            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the grid is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 "        </div>\n" +
@@ -195,7 +195,7 @@ public class UpdateStatements {
 "                <li><strong>Manipulate the board</strong> using ONE of the following methods:</li>\n" +
 "                <ul>\n" +
 "                    <li><strong>Rotate</strong> a 3x3 block 90 degrees either left or right.</li>\n" +
-"                    <li><strong>Swap</strong> the physical positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>\n" +
+"                    <li><span style=\"background-color: rgba(76, 175, 80, 0.3); padding: 2px 4px; border-radius: 4px;\"><strong>Swap</strong> the physical positions of two adjacent 3x3 blocks (blocks sharing an edge).</span></li>\n" +
 "                </ul>\n" +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
