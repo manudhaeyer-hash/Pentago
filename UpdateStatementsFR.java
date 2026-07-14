@@ -91,7 +91,7 @@ public class UpdateStatementsFR {
 "      </div>\n" +
 "      <div>\n" +
 "        Bienvenue dans la <strong>Ligue Bronze</strong> ! Fini de jouer.<br>\n" +
-"        Le plateau s'est étendu à un format massif 9x9, et vous affrontez maintenant jusqu'à 3 adversaires en même temps dans un Chacun pour Soi !\n" +
+"        Le plateau s'est étendu à un format massif 9x9, et vous affrontez maintenant jusqu'à 3 adversaires en même temps !\n" +
 "      </div>\n" +
 "    </div>\n" +
 "\n" +
