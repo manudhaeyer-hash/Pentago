@@ -254,6 +254,7 @@ public class Referee extends AbstractReferee {
                             player.deactivate(String.format("Invalid swap blocks %d and %d", b1, b2));
                             player.setScore(-1);
                         } else {
+                            gameManager.addToGameSummary(player.getNicknameToken() + " played " + output);
                             playerActionTexts[player.getIndex()].setText(String.format("Played %d %d SWAP %d %d", x, y, b1, b2));
                             animateSwap(b1, b2);
                             if (checkWinCondition()) return;
@@ -266,6 +267,7 @@ public class Referee extends AbstractReferee {
                             player.deactivate(String.format("Invalid rotation block %d dir %s", block, dir));
                             player.setScore(-1);
                         } else {
+                            gameManager.addToGameSummary(player.getNicknameToken() + " played " + output);
                             playerActionTexts[player.getIndex()].setText(String.format("Played %d %d %d %s", x, y, block, dir));
                             animateRotation(block, dir);
                             if (checkWinCondition()) return;
