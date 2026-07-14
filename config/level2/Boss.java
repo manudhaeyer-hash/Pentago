@@ -60,19 +60,7 @@ class Player {
                     allMoves.add(new Move(cell[0], cell[1], b, "R"));
                 }
                 
-                if (size == 9) {
-                    for (int b1 = 0; b1 < 9; b1++) {
-                        int bx1 = b1 % 3;
-                        int by1 = b1 / 3;
-                        for (int b2 = b1 + 1; b2 < 9; b2++) {
-                            int bx2 = b2 % 3;
-                            int by2 = b2 / 3;
-                            if (Math.abs(bx1 - bx2) + Math.abs(by1 - by2) == 1) {
-                                allMoves.add(new Move(cell[0], cell[1], b1, b2, true));
-                            }
-                        }
-                    }
-                }
+                // Swaps are only introduced in League 3. League 2 boss does not use swaps.
             }
             
             Move bestMove = null;
