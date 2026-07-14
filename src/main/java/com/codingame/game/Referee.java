@@ -25,6 +25,8 @@ public class Referee extends AbstractReferee {
     private Sprite[][] marbles;
     private int[] blockRotations;
     private Text[] playerActionTexts;
+    private Sprite[] playerAvatars;
+    private Text[] playerNames;
     
     private final String[] MARBLE_IMAGES = {"red_marble.png", "blue_marble.png", "green_marble.png", "yellow_marble.png"};
     private final String[] MARBLE_GLOW_IMAGES = {"red_marble_glow.png", "blue_marble_glow.png", "green_marble_glow.png", "yellow_marble_glow.png"};
@@ -126,6 +128,9 @@ public class Referee extends AbstractReferee {
         }
 
         playerActionTexts = new Text[gameManager.getPlayerCount()];
+        playerAvatars = new Sprite[gameManager.getPlayerCount()];
+        playerNames = new Text[gameManager.getPlayerCount()];
+
         for (Player p : gameManager.getPlayers()) {
             int idx = p.getIndex();
             int x = (idx % 2 == 0) ? 250 : 1920 - 250;
@@ -142,7 +147,7 @@ public class Referee extends AbstractReferee {
 
             String avatar = p.getAvatarToken();
             if (avatar != null) {
-                graphicEntityModule.createSprite()
+                playerAvatars[idx] = graphicEntityModule.createSprite()
                         .setImage(avatar)
                         .setX(x)
                         .setY(y - 100)
@@ -154,7 +159,7 @@ public class Referee extends AbstractReferee {
             }
 
             String nickname = p.getNicknameToken();
-            graphicEntityModule.createText(nickname != null ? nickname : "Player " + idx)
+            playerNames[idx] = graphicEntityModule.createText(nickname != null ? nickname : "Player " + idx)
                     .setX(x)
                     .setY(y + 20)
                     .setAnchorX(0.5)
@@ -427,6 +432,19 @@ public class Referee extends AbstractReferee {
                 int x = (pIdx % 2 == 0) ? 250 : 1920 - 250;
                 int y = (pIdx < 2) ? 300 : 1080 - 300;
 
+                // Bring Avatar and Name above the dark background (100)
+                if (playerAvatars[pIdx] != null) {
+                    graphicEntityModule.commitEntityState(0.8, playerAvatars[pIdx]);
+                    playerAvatars[pIdx].setZIndex(102);
+                    graphicEntityModule.commitEntityState(1.0, playerAvatars[pIdx]);
+                }
+                
+                if (playerNames[pIdx] != null) {
+                    graphicEntityModule.commitEntityState(0.8, playerNames[pIdx]);
+                    playerNames[pIdx].setZIndex(103);
+                    graphicEntityModule.commitEntityState(1.0, playerNames[pIdx]);
+                }
+
                 // Spawn Glow Frame
                 Sprite glow = graphicEntityModule.createSprite()
                     .setImage("frame_glow_" + (pIdx % 4) + ".png")
@@ -435,7 +453,7 @@ public class Referee extends AbstractReferee {
                     .setAnchor(0.5)
                     .setBaseWidth(180)
                     .setBaseHeight(180)
-                    .setZIndex(-4)
+                    .setZIndex(101)
                     .setAlpha(0);
                 
                 graphicEntityModule.commitEntityState(0.8, glow);
@@ -448,6 +466,7 @@ public class Referee extends AbstractReferee {
                 actionText.setText("WINNER")
                     .setFillColor(0xffffff)
                     .setFontSize(50)
+                    .setZIndex(104)
                     .setFontWeight(Text.FontWeight.BOLD);
                 graphicEntityModule.commitEntityState(1.0, actionText);
             }
