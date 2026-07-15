@@ -96,7 +96,7 @@ public class UpdateStatementsFR {
 
         String baseL1 = 
 topAlertPart1 +
-"            <b>Ligue Bois :</b> Bienvenue ! Le jeu est simplifié pour que vous appreniez les bases. Vous jouez en duel 1v1 sur un plateau 6x6.\n" +
+"            <b>Ligue Wood 4 :</b> Bienvenue ! Le jeu est simplifié pour que vous appreniez les bases. Vous jouez en duel 1v1 sur un plateau 6x6.\n" +
 topAlertPart2 + goalFr +
 "    <div class=\"statement-section statement-rules\">\n" +
 "        <h2>\n" +
@@ -158,7 +158,7 @@ constraintsFr +
 
         String baseL2 = 
 topAlertPart1 +
-"            <b>Ligue Bronze :</b> Fini de jouer. Le plateau s'est agrandi pour devenir un massif 9x9, et vous affrontez maintenant jusqu'à 3 adversaires simultanément !\n" +
+"            <b>Ligue Wood 3 :</b> Fini de jouer. Le plateau s'est agrandi pour devenir un massif 9x9, et vous affrontez maintenant jusqu'à 3 adversaires simultanément !\n" +
 topAlertPart2 + goalFr +
 "    <div class=\"statement-section statement-rules\">\n" +
 "        <h2>\n" +
@@ -221,7 +221,7 @@ constraintsFr +
 
         String baseL3 = 
 topAlertPart1 +
-"            <b>Ligue Argent :</b> La mécanique ultime a été débloquée : <action>SWAP</action>. Vous pouvez désormais échanger les positions de deux blocs au lieu de les pivoter !\n" +
+"            <b>Ligue Wood 2 :</b> La mécanique ultime a été débloquée : <action>SWAP</action>. Vous pouvez désormais échanger les positions de deux blocs au lieu de les pivoter !\n" +
 topAlertPart2 + goalFr +
 "    <div class=\"statement-section statement-rules\">\n" +
 "        <h2>\n" +
@@ -285,7 +285,7 @@ constraintsFr +
 
         String baseL4 = 
 topAlertPart1 +
-"            <b>Ligue Or :</b> Les règles restent identiques, mais vos adversaires (et le Boss) seront beaucoup plus forts. Bonne chance !\n" +
+"            <b>Ligue Wood 1 :</b> Les règles restent identiques, mais vos adversaires (et le Boss) seront beaucoup plus forts. Bonne chance !\n" +
 topAlertPart2 + goalFr +
 "    <div class=\"statement-section statement-rules\">\n" +
 "        <h2>\n" +

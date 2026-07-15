@@ -96,7 +96,7 @@ public class UpdateStatements {
 
         String baseL1 = 
 topAlertPart1 +
-"            <b>Wood League:</b> Welcome! The game is simplified for you to learn the basics. You play in a 1v1 duel on a 6x6 board.\n" +
+"            <b>Wood 4 League:</b> Welcome! The game is simplified for you to learn the basics. You play in a 1v1 duel on a 6x6 board.\n" +
 topAlertPart2 + goalEn +
 "    <div class=\"statement-section statement-rules\">\n" +
 "        <h2>\n" +
@@ -160,7 +160,7 @@ constraintsEn +
 
         String baseL2 = 
 topAlertPart1 +
-"            <b>Bronze League:</b> The training wheels are off. The board has expanded to a massive 9x9 board, and you are now facing up to 3 opponents simultaneously in a free-for-all!\n" +
+"            <b>Wood 3 League:</b> The training wheels are off. The board has expanded to a massive 9x9 board, and you are now facing up to 3 opponents simultaneously in a free-for-all!\n" +
 topAlertPart2 + goalEn +
 "    <div class=\"statement-section statement-rules\">\n" +
 "        <h2>\n" +
@@ -225,7 +225,7 @@ constraintsEn +
 
         String baseL3 = 
 topAlertPart1 +
-"            <b>Silver League:</b> The ultimate mechanic has been unlocked: <action>SWAP</action>. You can now exchange the positions of two blocks instead of rotating them!\n" +
+"            <b>Wood 2 League:</b> The ultimate mechanic has been unlocked: <action>SWAP</action>. You can now exchange the positions of two blocks instead of rotating them!\n" +
 topAlertPart2 + goalEn +
 "    <div class=\"statement-section statement-rules\">\n" +
 "        <h2>\n" +
@@ -289,7 +289,7 @@ constraintsEn +
 
         String baseL4 = 
 topAlertPart1 +
-"            <b>Gold League:</b> The rules remain identical, but your opponents (and the Boss) will be much stronger. Good luck!\n" +
+"            <b>Wood 1 League:</b> The rules remain identical, but your opponents (and the Boss) will be much stronger. Good luck!\n" +
 topAlertPart2 + goalEn +
 "    <div class=\"statement-section statement-rules\">\n" +
 "        <h2>\n" +
