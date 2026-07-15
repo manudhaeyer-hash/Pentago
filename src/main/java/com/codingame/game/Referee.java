@@ -139,15 +139,14 @@ public class Referee extends AbstractReferee {
                 int i = y % 3;
                 int j = x % 3;
                 
-                int absX = startX + bx * (blockSize + gap) + j * cellSize + cellSize/2;
-                int absY = startY + by * (blockSize + gap) + i * cellSize + cellSize/2;
+                int absX = startX + bx * (blockSize + gap) + j * cellSize;
+                int absY = startY + by * (blockSize + gap) + i * cellSize;
                 
                 Rectangle tooltipRect = graphicEntityModule.createRectangle()
                     .setWidth(cellSize)
                     .setHeight(cellSize)
                     .setX(absX)
                     .setY(absY)
-                    .setAnchor(0.5)
                     .setAlpha(0)
                     .setZIndex(100);
                     
