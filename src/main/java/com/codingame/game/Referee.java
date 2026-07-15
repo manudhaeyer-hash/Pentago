@@ -22,6 +22,7 @@ public class Referee extends AbstractReferee {
 
     private Board board;
     private int currentPlayerIndex = 0;
+    private static final boolean HIDE_HUD = false;
     
     private Group[] blockGroups;
     private Sprite[][] marbles;
@@ -164,7 +165,7 @@ public class Referee extends AbstractReferee {
             int x = (idx % 2 == 0) ? 250 : 1920 - 250;
             int y = (idx < 2) ? 300 : 1080 - 300;
 
-            graphicEntityModule.createSprite()
+            Sprite frame = graphicEntityModule.createSprite()
                     .setImage("frame_" + idx + ".png")
                     .setX(x)
                     .setY(y - 100)
@@ -172,6 +173,7 @@ public class Referee extends AbstractReferee {
                     .setBaseWidth(180)
                     .setBaseHeight(180)
                     .setZIndex(-5);
+            if (HIDE_HUD) graphicEntityModule.commitEntityState(0, frame.setAlpha(0));
 
             String avatar = p.getAvatarToken();
             if (avatar != null) {
@@ -184,6 +186,7 @@ public class Referee extends AbstractReferee {
                         .setBaseWidth(150)
                         .setBaseHeight(150)
                         .setZIndex(0);
+                if (HIDE_HUD) graphicEntityModule.commitEntityState(0, playerAvatars[idx].setAlpha(0));
             }
 
             String nickname = p.getNicknameToken();
@@ -193,6 +196,7 @@ public class Referee extends AbstractReferee {
                     .setAnchorX(0.5)
                     .setFontSize(40)
                     .setFillColor(PLAYER_COLORS[idx]);
+            if (HIDE_HUD) graphicEntityModule.commitEntityState(0, playerNames[idx].setAlpha(0));
                     
             playerActionTexts[idx] = graphicEntityModule.createText("Waiting...")
                     .setX(x)
@@ -200,6 +204,7 @@ public class Referee extends AbstractReferee {
                     .setAnchorX(0.5)
                     .setFontSize(45)
                     .setFillColor(0xffffff);
+            if (HIDE_HUD) graphicEntityModule.commitEntityState(0, playerActionTexts[idx].setAlpha(0));
         }
     }
 
@@ -475,7 +480,7 @@ public class Referee extends AbstractReferee {
                     .setAlpha(0);
                 
                 graphicEntityModule.commitEntityState(0.8, glow);
-                glow.setAlpha(1);
+                if (!HIDE_HUD) glow.setAlpha(1);
                 graphicEntityModule.commitEntityState(1.0, glow);
 
                 // Update text to "WINNER" or "DRAW"
