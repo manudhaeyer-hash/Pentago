@@ -1,8 +1,17 @@
 import sys
 import random
 
+try:
+    playerCount = int(input())
+    myId = int(input())
+except EOFError:
+    sys.exit(0)
+
 while True:
-    size = int(input())
+    try:
+        size = int(input())
+    except EOFError:
+        break
     numPlayers = 2
     empty_cells = []
     for y in range(size):
