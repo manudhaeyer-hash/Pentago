@@ -571,6 +571,18 @@ public class Referee extends AbstractReferee {
                     .setZIndex(104)
                     .setFontWeight(Text.FontWeight.BOLD);
                 graphicEntityModule.commitEntityState(1.0, actionText);
+                
+                Text scoreText = playerScoreTexts[pIdx];
+                if (scoreText != null) {
+                    graphicEntityModule.commitEntityState(0.8, scoreText);
+                    scoreText.setZIndex(104)
+                             .setY(y + 160);
+                    if (playerRanks[pIdx] == 1) {
+                        scoreText.setFillColor(0xffd700)
+                                 .setFontWeight(Text.FontWeight.BOLD);
+                    }
+                    graphicEntityModule.commitEntityState(1.0, scoreText);
+                }
             }
             gameManager.endGame();
             return true;
