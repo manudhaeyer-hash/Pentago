@@ -51,6 +51,7 @@ public class UpdateStatements {
 "          <div class=\"title\">Tie-Break Score</div>\n" +
 "          <p>When the board is full (or if multiple players align 5 marbles simultaneously), a tie-break score is calculated:</p>\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
+"            <li>A contiguous line of <strong>5 marbles</strong>: 500 points</li>\n" +
 "            <li>A contiguous line of <strong>4 marbles</strong>: 100 points</li>\n" +
 "            <li>A contiguous line of <strong>3 marbles</strong>: 10 points</li>\n" +
 "            <li>A contiguous line of <strong>2 marbles</strong>: 1 point</li>\n" +

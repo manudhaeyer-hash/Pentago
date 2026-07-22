@@ -575,15 +575,11 @@ public class Referee extends AbstractReferee {
                 Text scoreText = playerScoreTexts[pIdx];
                 if (scoreText != null) {
                     graphicEntityModule.commitEntityState(0.8, scoreText);
-                    if (gameManager.getPlayerCount() == 2 && winners.size() == 1) {
-                        scoreText.setAlpha(0);
-                    } else {
-                        scoreText.setZIndex(104)
-                                 .setY(y + 160);
-                        if (playerRanks[pIdx] == 1) {
-                            scoreText.setFillColor(0xffd700)
-                                     .setFontWeight(Text.FontWeight.BOLD);
-                        }
+                    scoreText.setZIndex(104)
+                             .setY(y + 160);
+                    if (playerRanks[pIdx] == 1) {
+                        scoreText.setFillColor(0xffd700)
+                                 .setFontWeight(Text.FontWeight.BOLD);
                     }
                     graphicEntityModule.commitEntityState(1.0, scoreText);
                 }

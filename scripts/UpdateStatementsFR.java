@@ -51,6 +51,7 @@ public class UpdateStatementsFR {
 "          <div class=\"title\">Score de Départage</div>\n" +
 "          <p>Lorsque le plateau est plein (ou si plusieurs joueurs alignent 5 billes simultanément), un score de départage est calculé :</p>\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
+"            <li>Une ligne de <strong>5 billes</strong> : 500 points</li>\n" +
 "            <li>Une ligne de <strong>4 billes</strong> : 100 points</li>\n" +
 "            <li>Une ligne de <strong>3 billes</strong> : 10 points</li>\n" +
 "            <li>Une ligne de <strong>2 billes</strong> : 1 point</li>\n" +
