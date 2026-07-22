@@ -473,6 +473,25 @@ public class Referee extends AbstractReferee {
                 }
             }
             
+            // 1. Calculate and set final scores
+            int[] tieBreakScores = board.getTieBreakScores(gameManager.getPlayerCount());
+            int maxScore = -2;
+            for (Player p : gameManager.getPlayers()) {
+                int finalScore = tieBreakScores[p.getIndex()];
+                if (winners.contains(p.getIndex())) {
+                    finalScore += 1000000;
+                } else if (winners.isEmpty() && p.isActive()) {
+                    // Tie break for surviving players
+                } else if (!p.isActive()) {
+                    finalScore = -1; // Give crashed players lowest possible score
+                }
+                p.setScore(finalScore);
+                if (finalScore > maxScore) {
+                    maxScore = finalScore;
+                }
+                gameManager.addToGameSummary("Player " + p.getNicknameToken() + " final score: " + finalScore + " (Tie-Break: " + tieBreakScores[p.getIndex()] + ")");
+            }
+
             // 2. Cinematic Background overlay
             Rectangle bg = graphicEntityModule.createRectangle()
                 .setWidth(1920).setHeight(1080)
@@ -484,10 +503,8 @@ public class Referee extends AbstractReferee {
             
             // 3. Glowing Frames Cinematic
             List<Integer> finalWinners = new java.util.ArrayList<>();
-            if (!winners.isEmpty()) {
-                finalWinners.addAll(winners);
-            } else {
-                for (Player p : gameManager.getActivePlayers()) {
+            for (Player p : gameManager.getPlayers()) {
+                if (p.getScore() == maxScore && p.isActive()) {
                     finalWinners.add(p.getIndex());
                 }
             }
@@ -525,7 +542,7 @@ public class Referee extends AbstractReferee {
                 graphicEntityModule.commitEntityState(1.0, glow);
 
                 // Update text to "WINNER" or "DRAW"
-                String endText = winners.isEmpty() ? "DRAW" : "WINNER";
+                String endText = finalWinners.size() > 1 ? "DRAW" : "WINNER";
                 Text actionText = playerActionTexts[pIdx];
                 graphicEntityModule.commitEntityState(0.8, actionText);
                 actionText.setText(endText)
@@ -534,20 +551,6 @@ public class Referee extends AbstractReferee {
                     .setZIndex(104)
                     .setFontWeight(Text.FontWeight.BOLD);
                 graphicEntityModule.commitEntityState(1.0, actionText);
-            }
-            
-            int[] tieBreakScores = board.getTieBreakScores(gameManager.getPlayerCount());
-            for (Player p : gameManager.getPlayers()) {
-                int finalScore = tieBreakScores[p.getIndex()];
-                if (winners.contains(p.getIndex())) {
-                    finalScore += 1000000;
-                } else if (winners.isEmpty() && p.isActive()) {
-                    // Tie break for surviving players
-                } else if (!p.isActive()) {
-                    finalScore = -1; // Give crashed players lowest possible score
-                }
-                p.setScore(finalScore);
-                gameManager.addToGameSummary("Player " + p.getNicknameToken() + " final score: " + finalScore + " (Tie-Break: " + tieBreakScores[p.getIndex()] + ")");
             }
             gameManager.endGame();
             return true;
