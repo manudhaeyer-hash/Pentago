@@ -47,6 +47,15 @@ public class UpdateStatements {
 "          <ul style=\"padding-bottom: 0;\">\n" +
 "            <li>Form a line of 5 marbles of your color horizontally, vertically, or diagonally.</li>\n" +
 "          </ul>\n" +
+"          <br>\n" +
+"          <div class=\"title\">Tie-Break Score</div>\n" +
+"          <p>When the board is full (or if multiple players align 5 marbles simultaneously), a tie-break score is calculated:</p>\n" +
+"          <ul style=\"padding-bottom: 0;\">\n" +
+"            <li>A contiguous line of <strong>4 marbles</strong>: 100 points</li>\n" +
+"            <li>A contiguous line of <strong>3 marbles</strong>: 10 points</li>\n" +
+"            <li>A contiguous line of <strong>2 marbles</strong>: 1 point</li>\n" +
+"          </ul>\n" +
+"          <p>The player with the highest tie-break score wins.</p>\n" +
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +
@@ -61,22 +70,6 @@ public class UpdateStatements {
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +
-"      <br />\n" +
-"      <div class=\"statement-victory-conditions\">\n" +
-"        <div class=\"icon victory\"></div>\n" +
-"        <div class=\"blk\">\n" +
-"          <div class=\"title\">🏆 Tie-Break Score</div>\n" +
-"          <div class=\"text\">\n" +
-"          <p>To avoid draws when the board is full (or if multiple players align 5 marbles simultaneously), a tie-break score is calculated:</p>\n" +
-"          <ul style=\"padding-bottom: 0;\">\n" +
-"            <li>A contiguous line of <strong>4 marbles</strong>: 100 points</li>\n" +
-"            <li>A contiguous line of <strong>3 marbles</strong>: 10 points</li>\n" +
-"            <li>A contiguous line of <strong>2 marbles</strong>: 1 point</li>\n" +
-"          </ul>\n" +
-"          <p>The player with the highest tie-break score wins.</p>\n" +
-"          </div>\n" +
-"        </div>\n" +
-"      </div>\n" +
 "      <br />\n";
 
         String expertRules = 
@@ -87,7 +80,7 @@ public class UpdateStatements {
 "        </h2>\n" +
 "        <div class=\"statement-expert-rules-content\">\n" +
 "            <ul style=\"padding-left: 20px; padding-bottom: 0\">\n" +
-"                <li>You can inspect the Referee source code on <a href=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/src/main/java/com/codingame/game/Referee.java\" target=\"_blank\">GitHub</a>.</li>\n" +
+"                <li>You can inspect the Referee source code on <a href=\"https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/src/main/java/com/codingame/game/Referee.java\" target=\"_blank\">GitHub</a>.</li>\n" +
 "            </ul>\n" +
 "        </div>\n" +
 "    </div>\n";
@@ -137,7 +130,7 @@ topAlertPart2 + goalEn +
 "                <li><strong>Rotate a 3x3 block</strong> 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>3</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>5</const> as shown below:</p>\n" +
-"            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level1/coords_6x6.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
+"            <img src=\"https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level1/coords_6x6.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
 vicDefEn + expertRules +
 "        </div>\n" +
 "    </div>\n" +
@@ -201,7 +194,7 @@ topAlertPart2 + goalEn +
 "            <div style=\"color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;\">\n" +
 "                <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            </div>\n" +
-"            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
+"            <img src=\"https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level2/coords_9x9.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
 vicDefEn + expertRules +
 "        </div>\n" +
 "    </div>\n" +
@@ -266,7 +259,7 @@ topAlertPart2 + goalEn +
 "                </ul>\n" +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
-"            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
+"            <img src=\"https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
 vicDefEn + expertRules +
 "        </div>\n" +
 "    </div>\n" +
@@ -326,7 +319,7 @@ topAlertPart2 + goalEn +
 "                </ul>\n" +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
-"            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
+"            <img src=\"https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
 vicDefEn + expertRules +
 "        </div>\n" +
 "    </div>\n" +

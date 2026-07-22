@@ -502,14 +502,23 @@ public class Referee extends AbstractReferee {
             graphicEntityModule.commitEntityState(1.0, bg);
             
             // 3. Glowing Frames Cinematic
-            List<Integer> finalWinners = new java.util.ArrayList<>();
-            for (Player p : gameManager.getPlayers()) {
-                if (p.getScore() == maxScore && p.isActive()) {
-                    finalWinners.add(p.getIndex());
+            List<Player> players = new java.util.ArrayList<>(gameManager.getPlayers());
+            players.sort((p1, p2) -> Integer.compare(p2.getScore(), p1.getScore()));
+            
+            int rank = 1;
+            int prevScore = players.get(0).getScore();
+            int[] playerRanks = new int[gameManager.getPlayerCount()];
+            for (int i = 0; i < players.size(); i++) {
+                Player p = players.get(i);
+                if (p.getScore() < prevScore) {
+                    rank = i + 1;
+                    prevScore = p.getScore();
                 }
+                playerRanks[p.getIndex()] = rank;
             }
 
-            for (Integer pIdx : finalWinners) {
+            for (Player p : players) {
+                int pIdx = p.getIndex();
                 int x = (pIdx % 2 == 0) ? 250 : 1920 - 250;
                 int y = (pIdx < 2) ? 300 : 1080 - 300;
 
@@ -526,23 +535,34 @@ public class Referee extends AbstractReferee {
                     graphicEntityModule.commitEntityState(1.0, playerNames[pIdx]);
                 }
 
-                // Spawn Glow Frame
-                Sprite glow = graphicEntityModule.createSprite()
-                    .setImage("frame_glow_" + (pIdx % 4) + ".png")
-                    .setX(x)
-                    .setY(y - 100)
-                    .setAnchor(0.5)
-                    .setBaseWidth(180)
-                    .setBaseHeight(180)
-                    .setZIndex(101)
-                    .setAlpha(0);
-                
-                graphicEntityModule.commitEntityState(0.8, glow);
-                if (!HIDE_HUD) glow.setAlpha(1);
-                graphicEntityModule.commitEntityState(1.0, glow);
+                // Spawn Glow Frame for 1st place
+                if (playerRanks[pIdx] == 1) {
+                    Sprite glow = graphicEntityModule.createSprite()
+                        .setImage("frame_glow_" + (pIdx % 4) + ".png")
+                        .setX(x)
+                        .setY(y - 100)
+                        .setAnchor(0.5)
+                        .setBaseWidth(180)
+                        .setBaseHeight(180)
+                        .setZIndex(101)
+                        .setAlpha(0);
+                    
+                    graphicEntityModule.commitEntityState(0.8, glow);
+                    if (!HIDE_HUD) glow.setAlpha(1);
+                    graphicEntityModule.commitEntityState(1.0, glow);
+                }
 
-                // Update text to "WINNER" or "DRAW"
-                String endText = finalWinners.size() > 1 ? "DRAW" : "WINNER";
+                // Update text to Rank
+                String endText;
+                switch (playerRanks[pIdx]) {
+                    case 1: endText = "1st"; break;
+                    case 2: endText = "2nd"; break;
+                    case 3: endText = "3rd"; break;
+                    case 4: endText = "4th"; break;
+                    default: endText = "";
+                }
+                if (!p.isActive()) endText = "CRASH";
+                
                 Text actionText = playerActionTexts[pIdx];
                 graphicEntityModule.commitEntityState(0.8, actionText);
                 actionText.setText(endText)

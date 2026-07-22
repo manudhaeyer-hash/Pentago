@@ -42,7 +42,7 @@
             <div style="color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;">
                 <p>Les blocs sont numérotés de <const>0</const> à <const>8</const>, et les coordonnées <var>x</var>, <var>y</var> de <const>0</const> à <const>8</const> comme illustré ci-dessous :</p>
             </div>
-            <img src="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png" style="width: 100%; max-width: 500px; display: block; margin: 10px auto;" />
+            <img src="https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level2/coords_9x9.png" style="width: 100%; max-width: 500px; display: block; margin: 10px auto;" />
       <br />
       <div class="statement-victory-conditions">
         <div class="icon victory"></div>
@@ -52,6 +52,15 @@
           <ul style="padding-bottom: 0;">
             <li>Former une ligne de 5 billes de votre couleur horizontalement, verticalement ou diagonalement.</li>
           </ul>
+          <br>
+          <div class="title">Score de Départage</div>
+          <p>Lorsque le plateau est plein (ou si plusieurs joueurs alignent 5 billes simultanément), un score de départage est calculé :</p>
+          <ul style="padding-bottom: 0;">
+            <li>Une ligne de <strong>4 billes</strong> : 100 points</li>
+            <li>Une ligne de <strong>3 billes</strong> : 10 points</li>
+            <li>Une ligne de <strong>2 billes</strong> : 1 point</li>
+          </ul>
+          <p>Le joueur avec le plus haut score de départage remporte la partie.</p>
           </div>
         </div>
       </div>
@@ -61,24 +70,8 @@
           <div class="title">Conditions de Défaite</div>
           <div class="text">
           <ul style="padding-bottom: 0;">
-            <li>Votre programme dépasse le temps imparti, plante ou renvoie une commande invalide.</li>
+            <li>Votre programme dépasse le temps limite, plante ou produit une commande invalide.</li>
           </ul>
-          </div>
-        </div>
-      </div>
-      <br />
-      <div class="statement-victory-conditions">
-        <div class="icon victory"></div>
-        <div class="blk">
-          <div class="title">🏆 Score de Départage (Tie-Break)</div>
-          <div class="text">
-          <p>Pour éviter les égalités frustrantes quand le plateau est plein (ou si plusieurs joueurs alignent 5 billes simultanément), un score de départage est calculé :</p>
-          <ul style="padding-bottom: 0;">
-            <li>Une ligne de <strong>4 billes</strong> : 100 points</li>
-            <li>Une ligne de <strong>3 billes</strong> : 10 points</li>
-            <li>Une ligne de <strong>2 billes</strong> : 1 point</li>
-          </ul>
-          <p>Le joueur avec le plus haut score de départage remporte la partie.</p>
           </div>
         </div>
       </div>
@@ -90,7 +83,7 @@
         </h2>
         <div class="statement-expert-rules-content">
             <ul style="padding-left: 20px; padding-bottom: 0">
-                <li>Vous pouvez consulter le code source du Referee sur <a href="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/src/main/java/com/codingame/game/Referee.java" target="_blank">GitHub</a>.</li>
+                <li>Vous pouvez consulter le code source du Referee sur <a href="https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/src/main/java/com/codingame/game/Referee.java" target="_blank">GitHub</a>.</li>
             </ul>
         </div>
     </div>

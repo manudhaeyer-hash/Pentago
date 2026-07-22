@@ -40,7 +40,7 @@
                 <li><strong>Rotate a 3x3 block</strong> 90 degrees either left (counter-clockwise) or right (clockwise).</li>
             </ol>
             <p>Blocks are numbered <const>0</const> to <const>3</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>5</const> as shown below:</p>
-            <img src="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level1/coords_6x6.png" style="width: 100%; max-width: 400px; display: block; margin: 10px auto;" />
+            <img src="https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level1/coords_6x6.png" style="width: 100%; max-width: 400px; display: block; margin: 10px auto;" />
       <br />
       <div class="statement-victory-conditions">
         <div class="icon victory"></div>
@@ -50,6 +50,15 @@
           <ul style="padding-bottom: 0;">
             <li>Form a line of 5 marbles of your color horizontally, vertically, or diagonally.</li>
           </ul>
+          <br>
+          <div class="title">Tie-Break Score</div>
+          <p>When the board is full (or if multiple players align 5 marbles simultaneously), a tie-break score is calculated:</p>
+          <ul style="padding-bottom: 0;">
+            <li>A contiguous line of <strong>4 marbles</strong>: 100 points</li>
+            <li>A contiguous line of <strong>3 marbles</strong>: 10 points</li>
+            <li>A contiguous line of <strong>2 marbles</strong>: 1 point</li>
+          </ul>
+          <p>The player with the highest tie-break score wins.</p>
           </div>
         </div>
       </div>
@@ -65,22 +74,6 @@
         </div>
       </div>
       <br />
-      <div class="statement-victory-conditions">
-        <div class="icon victory"></div>
-        <div class="blk">
-          <div class="title">🏆 Tie-Break Score</div>
-          <div class="text">
-          <p>To avoid draws when the board is full (or if multiple players align 5 marbles simultaneously), a tie-break score is calculated:</p>
-          <ul style="padding-bottom: 0;">
-            <li>A contiguous line of <strong>4 marbles</strong>: 100 points</li>
-            <li>A contiguous line of <strong>3 marbles</strong>: 10 points</li>
-            <li>A contiguous line of <strong>2 marbles</strong>: 1 point</li>
-          </ul>
-          <p>The player with the highest tie-break score wins.</p>
-          </div>
-        </div>
-      </div>
-      <br />
     <div class="statement-section statement-expertrules">
         <h2>
             <span class="icon icon-expertrules">&nbsp;</span>
@@ -88,7 +81,7 @@
         </h2>
         <div class="statement-expert-rules-content">
             <ul style="padding-left: 20px; padding-bottom: 0">
-                <li>You can inspect the Referee source code on <a href="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/src/main/java/com/codingame/game/Referee.java" target="_blank">GitHub</a>.</li>
+                <li>You can inspect the Referee source code on <a href="https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/src/main/java/com/codingame/game/Referee.java" target="_blank">GitHub</a>.</li>
             </ul>
         </div>
     </div>
