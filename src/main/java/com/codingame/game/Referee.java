@@ -210,7 +210,7 @@ public class Referee extends AbstractReferee {
             
             playerScoreTexts[idx] = graphicEntityModule.createText("Score: 0")
                     .setX(x)
-                    .setY(y + 135)
+                    .setY(y + 160)
                     .setAnchorX(0.5)
                     .setFontSize(35)
                     .setFillColor(0xCCCCCC);
