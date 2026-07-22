@@ -2,3 +2,12 @@
 /target/
 /.project
 /.classpath
+/.settings/
+
+# Ignore Boss Code
+boss_gold/
+nemesis/
+config/level1/Boss.*
+config/level2/Boss.*
+config/level3/Boss.*
+config/level4/Boss.*
