@@ -9,6 +9,18 @@ g++ -O3 -std=c++17 -o nemesis Nemesis.cpp
 Compatible CodinGame (fichier unique, mêmes E/S que le boss). Fonctionne en 6x6
 (sans SWAP) et 9x9 (avec SWAP), 2 à 4 joueurs, < 42 ms par coup (limite 50 ms).
 
+**Ligues 1 et 2** : l'action SWAP y est interdite et la ligue n'est pas
+déductible de l'entrée. Mettre `ENABLE_SWAPS = false` (constante en tête de
+fichier, aussi présente dans BossGold.cpp) avant d'utiliser le bot comme boss
+de ces ligues ; le laisser à `true` en ligue 3+.
+
+**Pie rule (2 joueurs)** : le référee permet au J2, à son tout premier coup, de
+voler la bille du J1 (placement sur sa case). Mesure sur 6x6 avec ouvertures
+aléatoires : sans la règle le J1 gagne 75% ; avec, 35%. Les deux bots
+l'implémentent : vol dès que la case du J1 vaut plus que le quartile bas des
+cases (le tempo domine la valeur de case), et ouverture du J1 calibrée juste
+sous ce seuil.
+
 ## Ce qui le rend plus fort que BossGold
 
 1. **Détection exacte de victoire forcée (offense, 2-ply prouvé).** Un coup est

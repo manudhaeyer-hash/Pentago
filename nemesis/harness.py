@@ -163,7 +163,14 @@ def play(bots, size, swaps, max_turns=200):
         if not active[cur]:
             cur = (cur + 1) % len(bots); continue
         mv = bots[cur].move(board, swaps)
-        ok = board.place(mv[0], mv[1], cur)
+        # pie rule (2-player): P1's first move may steal P0's marble
+        if (len(bots) == 2 and cur == 1
+                and sum(1 for r in board.g for c in r if c != -1) == 1
+                and board.g[mv[1]][mv[0]] == 0):
+            board.g[mv[1]][mv[0]] = 1
+            ok = True
+        else:
+            ok = board.place(mv[0], mv[1], cur)
         if ok:
             if mv[2] == "SWAP":
                 ok = board.swap(mv[3], mv[4]) and swaps
@@ -195,7 +202,7 @@ def main():
     for game in range(n_games):
         seat = game % n_players           # rotate boss seat
         if cpp: gmax = max(gmax, cpp.max_ms); cpp.close()
-        cpp = CppBot(exe, n_players, seat)                 # fresh process per game (id caching!)
+        cpp = CppBot(exe, n_players, seat, 9)   # fresh process per game
         bots = []
         for i in range(n_players):
             if i == seat:

@@ -37,6 +37,27 @@ public class Board {
         return grid;
     }
 
+    public int countMarbles() {
+        int n = 0;
+        for (int y = 0; y < size; y++)
+            for (int x = 0; x < size; x++)
+                if (grid[y][x] != -1) n++;
+        return n;
+    }
+
+    public int ownerAt(int x, int y) {
+        if (x < 0 || x >= size || y < 0 || y >= size) return -2;
+        return grid[y][x];
+    }
+
+    /** Pie rule: replace an opponent marble with playerId's marble. */
+    public boolean steal(int x, int y, int playerId) {
+        if (x < 0 || x >= size || y < 0 || y >= size) return false;
+        if (grid[y][x] == -1 || grid[y][x] == playerId) return false;
+        grid[y][x] = playerId;
+        return true;
+    }
+
     public boolean place(int x, int y, int playerId) {
         if (x < 0 || x >= size || y < 0 || y >= size || grid[y][x] != -1) {
             return false;
@@ -170,6 +191,55 @@ public class Board {
         }
         
         winningLines.add(new WinLine(player, linePoints));
+    }
+
+    public int[] getTieBreakScores(int numPlayers) {
+        int[] scores = new int[numPlayers];
+        
+        // 1. Horizontal
+        for (int y = 0; y < size; y++) {
+            countRuns(scores, 0, y, 1, 0, size);
+        }
+        
+        // 2. Vertical
+        for (int x = 0; x < size; x++) {
+            countRuns(scores, x, 0, 0, 1, size);
+        }
+        
+        // 3. Diagonal 1 (Top-Left to Bottom-Right)
+        for (int y = 0; y < size - 1; y++) countRuns(scores, 0, y, 1, 1, size - y);
+        for (int x = 1; x < size - 1; x++) countRuns(scores, x, 0, 1, 1, size - x);
+        
+        // 4. Diagonal 2 (Top-Right to Bottom-Left)
+        for (int y = 0; y < size - 1; y++) countRuns(scores, size - 1, y, -1, 1, size - y);
+        for (int x = 0; x < size - 1; x++) countRuns(scores, x, 0, -1, 1, x + 1);
+
+        return scores;
+    }
+
+    private void countRuns(int[] scores, int startX, int startY, int dx, int dy, int length) {
+        int currentPlayer = -1;
+        int currentLength = 0;
+        
+        for (int i = 0; i < length; i++) {
+            int p = grid[startY + dy * i][startX + dx * i];
+            if (p == currentPlayer) {
+                if (p != -1) currentLength++;
+            } else {
+                if (currentPlayer != -1) {
+                    if (currentLength == 4) scores[currentPlayer] += 100;
+                    else if (currentLength == 3) scores[currentPlayer] += 10;
+                    else if (currentLength == 2) scores[currentPlayer] += 1;
+                }
+                currentPlayer = p;
+                currentLength = (p != -1) ? 1 : 0;
+            }
+        }
+        if (currentPlayer != -1) {
+            if (currentLength == 4) scores[currentPlayer] += 100;
+            else if (currentLength == 3) scores[currentPlayer] += 10;
+            else if (currentLength == 2) scores[currentPlayer] += 1;
+        }
     }
 
     public boolean isFull() {

@@ -61,6 +61,22 @@ public class UpdateStatements {
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +
+"      <br />\n" +
+"      <div class=\"statement-victory-conditions\">\n" +
+"        <div class=\"icon victory\"></div>\n" +
+"        <div class=\"blk\">\n" +
+"          <div class=\"title\">🏆 Tie-Break Score</div>\n" +
+"          <div class=\"text\">\n" +
+"          <p>To avoid draws when the board is full (or if multiple players align 5 marbles simultaneously), a tie-break score is calculated:</p>\n" +
+"          <ul style=\"padding-bottom: 0;\">\n" +
+"            <li>A contiguous line of <strong>4 marbles</strong>: 100 points</li>\n" +
+"            <li>A contiguous line of <strong>3 marbles</strong>: 10 points</li>\n" +
+"            <li>A contiguous line of <strong>2 marbles</strong>: 1 point</li>\n" +
+"          </ul>\n" +
+"          <p>The player with the highest tie-break score wins.</p>\n" +
+"          </div>\n" +
+"        </div>\n" +
+"      </div>\n" +
 "      <br />\n";
 
         String expertRules = 
@@ -122,7 +138,6 @@ topAlertPart2 + goalEn +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>3</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>5</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level1/coords_6x6.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 vicDefEn + expertRules +
 "        </div>\n" +
 "    </div>\n" +
@@ -186,8 +201,7 @@ topAlertPart2 + goalEn +
 "            <div style=\"color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;\">\n" +
 "                <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            </div>\n" +
-"            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
+"            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
 vicDefEn + expertRules +
 "        </div>\n" +
 "    </div>\n" +
@@ -253,7 +267,6 @@ topAlertPart2 + goalEn +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 vicDefEn + expertRules +
 "        </div>\n" +
 "    </div>\n" +
@@ -314,7 +327,6 @@ topAlertPart2 + goalEn +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>\n" +
 vicDefEn + expertRules +
 "        </div>\n" +
 "    </div>\n" +

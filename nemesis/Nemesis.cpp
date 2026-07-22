@@ -37,6 +37,13 @@ static inline int ctz128(u128 x) {
 }
 static inline u128 bit128(int i) { return (u128)1 << i; }
 
+// ---------------------------------------------------------------------------
+// LEAGUE SWITCH: set to false when this bot is used as Boss in league 1 or 2
+// (SWAP is only legal from league 3 onward; the input does not reveal the
+// league, so this must be set at compile time).
+// ---------------------------------------------------------------------------
+static const bool ENABLE_SWAPS = true;
+
 static int S = 0, B = 0, NC = 0;
 static bool SWAPS = false;
 
@@ -433,7 +440,6 @@ int main() {
     if (!(cin >> playerCount)) return 0;
     int myId;
     if (!(cin >> myId)) return 0;
-    int maxIdSeen = 0;
     int size;
     if (!(cin >> size)) return 0;
 
@@ -445,7 +451,7 @@ int main() {
                        chrono::steady_clock::now() - t0).count();
         };
 
-        if (S != size) { initTables(size, size == 9); initBossTables(); }
+        if (S != size) { initTables(size, size == 9 && ENABLE_SWAPS); initBossTables(); }
 
         u128 bb[4] = {0, 0, 0, 0}, occ = 0;
         int totalPieces = 0;
@@ -459,17 +465,13 @@ int main() {
                 bb[p] |= bit128(y * S + x);
                 occ |= bit128(y * S + x);
                 totalPieces++;
-                if (p > maxIdSeen) maxIdSeen = p;
             }
         }
-
-        if (myId < 0) myId = min(totalPieces, 3);
-        if (myId > maxIdSeen) maxIdSeen = myId;
 
         int opps[3], nOpp = 0;
         for (int p = 0; p < 4; p++)
             if (p != myId && bb[p]) opps[nOpp++] = p;
-        int P = maxIdSeen + 1;
+        int P = playerCount;
         int oppOrder[3]; int nOppOrder = 0;
         for (int d = 1; d < P; d++) {
             int o = (myId + d) % P;
@@ -478,6 +480,58 @@ int main() {
 
         int NT = (int)TR.size();
         int NW = (int)WIN.size();
+
+
+        // ------------------------------------------------------------------
+        // Pie rule (2-player games only, mirrors the referee):
+        //  - As player 1, first move: we may steal P0's marble. Tempo is
+        //    worth more than the cell itself (the leader wins ~90% of
+        //    mirror games), so steal whenever P0's cell is above the
+        //    midpoint of the board's cell values.
+        //  - As player 0, first move: play the best cell strictly below
+        //    that threshold, so stealing gains the opponent nothing and
+        //    we keep a decent, non-stealable opening.
+        // ------------------------------------------------------------------
+        if (playerCount == 2 && totalPieces <= 1) {
+            auto cv = [&](int c) {
+                return (long long)POS[c] * 4 + (long long)CWIN[c].size() * 2;
+            };
+            long long vBest = LLONG_MIN, vMin = LLONG_MAX;
+            for (int c = 0; c < NC; c++) {
+                if (occ & bit128(c)) continue;
+                long long v = cv(c);
+                vBest = max(vBest, v); vMin = min(vMin, v);
+            }
+            if (myId == 1 && totalPieces == 1 && bb[0]) {
+                int oc = ctz128(bb[0]);
+                if (4 * cv(oc) >= 3 * vMin + vBest) {    // steal (tempo rules)
+                    int bestT = 0; long long bv = LLONG_MIN;
+                    for (int T = 0; T < NT; T++) {
+                        long long v = cv(TR[T].perm[oc]);
+                        if (v > bv) { bv = v; bestT = T; }
+                    }
+                    cout << (oc % S) << " " << (oc / S) << " "
+                         << TR[bestT].suffix << endl;
+                    continue;
+                }
+            } else if (myId == 0 && totalPieces == 0) {
+                int bestC = -1; long long bv = LLONG_MIN;
+                for (int c = 0; c < NC; c++) {
+                    long long v = cv(c);
+                    if (4 * v < 3 * vMin + vBest && v > bv) { bv = v; bestC = c; }
+                }
+                if (bestC >= 0) {
+                    for (int T = 0; T < NT; T++) {
+                        if (TR[T].perm[bestC] == (uint8_t)bestC) {
+                            cout << (bestC % S) << " " << (bestC / S) << " "
+                                 << TR[T].suffix << endl;
+                            goto pieDone;
+                        }
+                    }
+                }
+            }
+        }
+        if (false) { pieDone: continue; }
 
         if (pc128(occ) == NC) { cout << "0 0 0 R" << endl; continue; }
 

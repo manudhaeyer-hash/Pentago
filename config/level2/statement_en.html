@@ -42,8 +42,7 @@
             <div style="color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;">
                 <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>
             </div>
-            <img src="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png" style="width: 100%; max-width: 500px; display: block; margin: 10px auto;" />
-            <p><strong>Draws:</strong> If multiple players form a line of 5 simultaneously, it is a draw between those players. If the board is completely filled with no lines of 5, the game ends in a global draw for all active players.</p>
+            <img src="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png" style="width: 100%; max-width: 400px; display: block; margin: 10px auto;" />
       <br />
       <div class="statement-victory-conditions">
         <div class="icon victory"></div>
@@ -64,6 +63,22 @@
           <ul style="padding-bottom: 0;">
             <li>Your program times out, crashes, or outputs an invalid command.</li>
           </ul>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="statement-victory-conditions">
+        <div class="icon victory"></div>
+        <div class="blk">
+          <div class="title">🏆 Tie-Break Score</div>
+          <div class="text">
+          <p>To avoid draws when the board is full (or if multiple players align 5 marbles simultaneously), a tie-break score is calculated:</p>
+          <ul style="padding-bottom: 0;">
+            <li>A contiguous line of <strong>4 marbles</strong>: 100 points</li>
+            <li>A contiguous line of <strong>3 marbles</strong>: 10 points</li>
+            <li>A contiguous line of <strong>2 marbles</strong>: 1 point</li>
+          </ul>
+          <p>The player with the highest tie-break score wins.</p>
           </div>
         </div>
       </div>

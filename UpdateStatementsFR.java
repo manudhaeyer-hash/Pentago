@@ -61,6 +61,22 @@ public class UpdateStatementsFR {
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +
+"      <br />\n" +
+"      <div class=\"statement-victory-conditions\">\n" +
+"        <div class=\"icon victory\"></div>\n" +
+"        <div class=\"blk\">\n" +
+"          <div class=\"title\">🏆 Score de Départage (Tie-Break)</div>\n" +
+"          <div class=\"text\">\n" +
+"          <p>Pour éviter les égalités frustrantes quand le plateau est plein (ou si plusieurs joueurs alignent 5 billes simultanément), un score de départage est calculé :</p>\n" +
+"          <ul style=\"padding-bottom: 0;\">\n" +
+"            <li>Une ligne de <strong>4 billes</strong> : 100 points</li>\n" +
+"            <li>Une ligne de <strong>3 billes</strong> : 10 points</li>\n" +
+"            <li>Une ligne de <strong>2 billes</strong> : 1 point</li>\n" +
+"          </ul>\n" +
+"          <p>Le joueur avec le plus haut score de départage remporte la partie.</p>\n" +
+"          </div>\n" +
+"        </div>\n" +
+"      </div>\n" +
 "      <br />\n";
 
         String expertRulesFr = 
@@ -122,7 +138,6 @@ topAlertPart2 + goalFr +
 "            </ol>\n" +
 "            <p>Les blocs sont numérotés de <const>0</const> à <const>3</const>, et les coordonnées <var>x</var>, <var>y</var> de <const>0</const> à <const>5</const> comme illustré ci-dessous :</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level1/coords_6x6.png\" style=\"width: 100%; max-width: 400px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Égalités :</strong> Si plusieurs joueurs forment une ligne de 5 simultanément, c'est un match nul entre ces joueurs. Si le plateau est totalement rempli sans aucune ligne de 5, la partie se termine par une égalité globale pour tous les joueurs actifs.</p>\n" +
 vicDefFr + expertRulesFr +
 "        </div>\n" +
 "    </div>\n" +
@@ -185,7 +200,6 @@ topAlertPart2 + goalFr +
 "                <p>Les blocs sont numérotés de <const>0</const> à <const>8</const>, et les coordonnées <var>x</var>, <var>y</var> de <const>0</const> à <const>8</const> comme illustré ci-dessous :</p>\n" +
 "            </div>\n" +
 "            <img src=\"https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level2/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
-"            <p><strong>Égalités :</strong> Si plusieurs joueurs forment une ligne de 5 simultanément, c'est un match nul entre ces joueurs. Si le plateau est totalement rempli sans aucune ligne de 5, la partie se termine par une égalité globale pour tous les joueurs actifs.</p>\n" +
 vicDefFr + expertRulesFr +
 "        </div>\n" +
 "    </div>\n" +

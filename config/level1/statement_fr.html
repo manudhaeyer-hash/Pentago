@@ -41,7 +41,6 @@
             </ol>
             <p>Les blocs sont numérotés de <const>0</const> à <const>3</const>, et les coordonnées <var>x</var>, <var>y</var> de <const>0</const> à <const>5</const> comme illustré ci-dessous :</p>
             <img src="https://raw.githubusercontent.com/n3l-ctrl/Pentago-/main/config/level1/coords_6x6.png" style="width: 100%; max-width: 400px; display: block; margin: 10px auto;" />
-            <p><strong>Égalités :</strong> Si plusieurs joueurs forment une ligne de 5 simultanément, c'est un match nul entre ces joueurs. Si le plateau est totalement rempli sans aucune ligne de 5, la partie se termine par une égalité globale pour tous les joueurs actifs.</p>
       <br />
       <div class="statement-victory-conditions">
         <div class="icon victory"></div>
@@ -62,6 +61,22 @@
           <ul style="padding-bottom: 0;">
             <li>Votre programme dépasse le temps imparti, plante ou renvoie une commande invalide.</li>
           </ul>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="statement-victory-conditions">
+        <div class="icon victory"></div>
+        <div class="blk">
+          <div class="title">🏆 Score de Départage (Tie-Break)</div>
+          <div class="text">
+          <p>Pour éviter les égalités frustrantes quand le plateau est plein (ou si plusieurs joueurs alignent 5 billes simultanément), un score de départage est calculé :</p>
+          <ul style="padding-bottom: 0;">
+            <li>Une ligne de <strong>4 billes</strong> : 100 points</li>
+            <li>Une ligne de <strong>3 billes</strong> : 10 points</li>
+            <li>Une ligne de <strong>2 billes</strong> : 1 point</li>
+          </ul>
+          <p>Le joueur avec le plus haut score de départage remporte la partie.</p>
           </div>
         </div>
       </div>

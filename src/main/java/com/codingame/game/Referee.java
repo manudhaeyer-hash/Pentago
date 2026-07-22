@@ -30,6 +30,7 @@ public class Referee extends AbstractReferee {
     private Text[] playerActionTexts;
     private Sprite[] playerAvatars;
     private Text[] playerNames;
+    private Text[] playerScoreTexts;
     
     private final String[] MARBLE_IMAGES = {"red_marble.png", "blue_marble.png", "orange_marble.png", "green_marble.png"};
     private final String[] MARBLE_GLOW_IMAGES = {"red_marble_glow.png", "blue_marble_glow.png", "orange_marble_glow.png", "green_marble_glow.png"};
@@ -159,6 +160,7 @@ public class Referee extends AbstractReferee {
         playerActionTexts = new Text[gameManager.getPlayerCount()];
         playerAvatars = new Sprite[gameManager.getPlayerCount()];
         playerNames = new Text[gameManager.getPlayerCount()];
+        playerScoreTexts = new Text[gameManager.getPlayerCount()];
 
         for (Player p : gameManager.getPlayers()) {
             int idx = p.getIndex();
@@ -205,6 +207,14 @@ public class Referee extends AbstractReferee {
                     .setFontSize(45)
                     .setFillColor(0xffffff);
             if (HIDE_HUD) graphicEntityModule.commitEntityState(0, playerActionTexts[idx].setAlpha(0));
+            
+            playerScoreTexts[idx] = graphicEntityModule.createText("Score: 0")
+                    .setX(x)
+                    .setY(y + 135)
+                    .setAnchorX(0.5)
+                    .setFontSize(35)
+                    .setFillColor(0xCCCCCC);
+            if (HIDE_HUD) graphicEntityModule.commitEntityState(0, playerScoreTexts[idx].setAlpha(0));
         }
     }
 
@@ -282,10 +292,24 @@ public class Referee extends AbstractReferee {
                     return;
                 }
 
-                boolean placed = board.place(x, y, player.getIndex());
+                // Pie rule (2-player games only): on their very first move,
+                // the second player may place their marble ON the first
+                // player's marble, stealing that position.
+                boolean pieSteal = false;
+                if (gameManager.getPlayerCount() == 2 && player.getIndex() == 1
+                        && board.countMarbles() == 1
+                        && board.ownerAt(x, y) == 0) {
+                    pieSteal = board.steal(x, y, player.getIndex());
+                }
+                boolean placed = pieSteal || board.place(x, y, player.getIndex());
                 if (!placed) {
                     deactivatePlayer(player, String.format("Invalid placement at %d %d", x, y));
                 } else {
+                    if (pieSteal) {
+                        gameManager.addToGameSummary(player.getNicknameToken()
+                                + " invoked the PIE RULE and stole the marble at "
+                                + x + " " + y);
+                    }
                     drawMarble(x, y, player.getIndex());
                     
                     if (isSwap) {
@@ -298,6 +322,7 @@ public class Referee extends AbstractReferee {
                             gameManager.addToGameSummary(player.getNicknameToken() + " played " + output);
                             playerActionTexts[player.getIndex()].setText(String.format("%d %d %d %d", x, y, b1, b2));
                             animateSwap(b1, b2);
+                            updateScoreUI();
                             if (checkWinCondition()) return;
                         }
                     } else {
@@ -310,6 +335,7 @@ public class Referee extends AbstractReferee {
                             gameManager.addToGameSummary(player.getNicknameToken() + " played " + output);
                             playerActionTexts[player.getIndex()].setText(String.format("%d %d %d %s", x, y, block, dir));
                             animateRotation(block, dir);
+                            updateScoreUI();
                             if (checkWinCondition()) return;
                         }
                     }
@@ -408,13 +434,28 @@ public class Referee extends AbstractReferee {
     private void advanceTurn() {
         List<Player> active = gameManager.getActivePlayers();
         if (active.size() <= 1) {
-            for (Player p : active) p.setScore(1);
+            int[] tieBreakScores = board.getTieBreakScores(gameManager.getPlayerCount());
+            for (Player p : gameManager.getPlayers()) {
+                if (active.contains(p)) {
+                    p.setScore(1000000 + tieBreakScores[p.getIndex()]);
+                } else {
+                    p.setScore(tieBreakScores[p.getIndex()]);
+                }
+            }
             gameManager.endGame();
             return;
         }
         do {
             currentPlayerIndex = (currentPlayerIndex + 1) % gameManager.getPlayerCount();
         } while (!gameManager.getPlayer(currentPlayerIndex).isActive());
+    }
+
+    private void updateScoreUI() {
+        int[] tieBreakScores = board.getTieBreakScores(gameManager.getPlayerCount());
+        for (Player p : gameManager.getPlayers()) {
+            playerScoreTexts[p.getIndex()].setText("Score: " + tieBreakScores[p.getIndex()]);
+            graphicEntityModule.commitEntityState(1.0, playerScoreTexts[p.getIndex()]);
+        }
     }
 
     private boolean checkWinCondition() {
@@ -495,18 +536,18 @@ public class Referee extends AbstractReferee {
                 graphicEntityModule.commitEntityState(1.0, actionText);
             }
             
-            if (!winners.isEmpty()) {
-                for (Player p : gameManager.getPlayers()) {
-                    if (winners.contains(p.getIndex())) {
-                        p.setScore(1);
-                    } else if (p.isActive()) {
-                        p.setScore(0);
-                    }
+            int[] tieBreakScores = board.getTieBreakScores(gameManager.getPlayerCount());
+            for (Player p : gameManager.getPlayers()) {
+                int finalScore = tieBreakScores[p.getIndex()];
+                if (winners.contains(p.getIndex())) {
+                    finalScore += 1000000;
+                } else if (winners.isEmpty() && p.isActive()) {
+                    // Tie break for surviving players
+                } else if (!p.isActive()) {
+                    finalScore = -1; // Give crashed players lowest possible score
                 }
-            } else {
-                for (Player p : gameManager.getActivePlayers()) {
-                    p.setScore(1);
-                }
+                p.setScore(finalScore);
+                gameManager.addToGameSummary("Player " + p.getNicknameToken() + " final score: " + finalScore + " (Tie-Break: " + tieBreakScores[p.getIndex()] + ")");
             }
             gameManager.endGame();
             return true;
