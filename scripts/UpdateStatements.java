@@ -48,15 +48,16 @@ public class UpdateStatements {
 "            <li>Form a line of 5 marbles of your color horizontally, vertically, or diagonally.</li>\n" +
 "          </ul>\n" +
 "          <br>\n" +
-"          <div class=\"title\">Tie-Break Score</div>\n" +
-"          <p>When the board is full (or if multiple players align 5 marbles simultaneously), a tie-break score is calculated:</p>\n" +
+"          <p>If the board is full, or if multiple players form a line of 5 simultaneously, the winner is determined by a tie-break score.</p>\n" +
+"          <p>For each player, consider every maximal contiguous line of their marbles in the four directions (horizontal, vertical, and the two diagonals). Each line contributes:</p>\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
-"            <li>A contiguous line of <strong>5 marbles</strong>: 500 points</li>\n" +
-"            <li>A contiguous line of <strong>4 marbles</strong>: 100 points</li>\n" +
-"            <li>A contiguous line of <strong>3 marbles</strong>: 10 points</li>\n" +
-"            <li>A contiguous line of <strong>2 marbles</strong>: 1 point</li>\n" +
+"            <li>Length <const>5</const> or more: <const>500</const> points</li>\n" +
+"            <li>Length <const>4</const>: <const>100</const> points</li>\n" +
+"            <li>Length <const>3</const>: <const>10</const> points</li>\n" +
+"            <li>Length <const>2</const>: <const>1</const> point</li>\n" +
+"            <li>Length <const>1</const>: <const>0</const> points</li>\n" +
 "          </ul>\n" +
-"          <p>The player with the highest tie-break score wins.</p>\n" +
+"          <p>The player with the highest total score wins. If multiple players have the same highest tie-break score, the game ends in a draw between those players.</p>\n" +
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +
@@ -91,7 +92,7 @@ public class UpdateStatements {
 "            <div class=\"title\">Initialization Input</div>\n" +
 "            <div class=\"text\">\n" +
 "                <p><span class=\"statement-lineno\">Line 1: </span><var>playerCount</var>, the number of players in the game (<const>2</const>).</p>\n" +
-"                <p><span class=\"statement-lineno\">Line 2: </span><var>myId</var>, your player ID (<const>0</const> or <const>1</const>).</p>\n" +
+"                <p><span class=\"statement-lineno\">Line 2: </span><var>myId</var>, your player ID (<const>0</const> to <var>playerCount</var> - 1).</p>\n" +
 "                <p><span class=\"statement-lineno\">Line 3: </span><var>size</var>, the size of the board (<const>6</const>).</p>\n" +
 "            </div>\n" +
 "        </div>\n";
@@ -101,7 +102,7 @@ public class UpdateStatements {
 "            <div class=\"title\">Initialization Input</div>\n" +
 "            <div class=\"text\">\n" +
 "                <p><span class=\"statement-lineno\">Line 1: </span><var>playerCount</var>, the number of players in the game (<const>3</const> or <const>4</const>).</p>\n" +
-"                <p><span class=\"statement-lineno\">Line 2: </span><var>myId</var>, your player ID (<const>0</const> to <const>3</const>).</p>\n" +
+"                <p><span class=\"statement-lineno\">Line 2: </span><var>myId</var>, your player ID (<const>0</const> to <var>playerCount</var> - 1).</p>\n" +
 "                <p><span class=\"statement-lineno\">Line 3: </span><var>size</var>, the size of the board (<const>9</const>).</p>\n" +
 "            </div>\n" +
 "        </div>\n";

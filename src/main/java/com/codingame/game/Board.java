@@ -50,13 +50,6 @@ public class Board {
         return grid[y][x];
     }
 
-    /** Pie rule: replace an opponent marble with playerId's marble. */
-    public boolean steal(int x, int y, int playerId) {
-        if (x < 0 || x >= size || y < 0 || y >= size) return false;
-        if (grid[y][x] == -1 || grid[y][x] == playerId) return false;
-        grid[y][x] = playerId;
-        return true;
-    }
 
     public boolean place(int x, int y, int playerId) {
         if (x < 0 || x >= size || y < 0 || y >= size || grid[y][x] != -1) {

@@ -48,15 +48,16 @@ public class UpdateStatementsFR {
 "            <li>Former une ligne de 5 billes de votre couleur horizontalement, verticalement ou diagonalement.</li>\n" +
 "          </ul>\n" +
 "          <br>\n" +
-"          <div class=\"title\">Score de Départage</div>\n" +
-"          <p>Lorsque le plateau est plein (ou si plusieurs joueurs alignent 5 billes simultanément), un score de départage est calculé :</p>\n" +
+"          <p>Si le plateau est plein, ou si plusieurs joueurs forment une ligne de 5 simultanément, le vainqueur est déterminé par un score de départage.</p>\n" +
+"          <p>Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
-"            <li>Une ligne de <strong>5 billes</strong> : 500 points</li>\n" +
-"            <li>Une ligne de <strong>4 billes</strong> : 100 points</li>\n" +
-"            <li>Une ligne de <strong>3 billes</strong> : 10 points</li>\n" +
-"            <li>Une ligne de <strong>2 billes</strong> : 1 point</li>\n" +
+"            <li>Longueur <const>5</const> ou plus : <const>500</const> points</li>\n" +
+"            <li>Longueur <const>4</const> : <const>100</const> points</li>\n" +
+"            <li>Longueur <const>3</const> : <const>10</const> points</li>\n" +
+"            <li>Longueur <const>2</const> : <const>1</const> point</li>\n" +
+"            <li>Longueur <const>1</const> : <const>0</const> point</li>\n" +
 "          </ul>\n" +
-"          <p>Le joueur avec le plus haut score de départage remporte la partie.</p>\n" +
+"          <p>Le joueur avec le score total le plus élevé l'emporte. Si plusieurs joueurs ont le même meilleur score de départage, la partie se termine par une égalité entre ces joueurs.</p>\n" +
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +
@@ -91,7 +92,7 @@ public class UpdateStatementsFR {
 "            <div class=\"title\">Entrées d'initialisation</div>\n" +
 "            <div class=\"text\">\n" +
 "                <p><span class=\"statement-lineno\">Ligne 1: </span><var>playerCount</var>, le nombre de joueurs dans la partie (<const>2</const>).</p>\n" +
-"                <p><span class=\"statement-lineno\">Ligne 2: </span><var>myId</var>, votre ID de joueur (<const>0</const> ou <const>1</const>).</p>\n" +
+"                <p><span class=\"statement-lineno\">Ligne 2: </span><var>myId</var>, votre ID de joueur (<const>0</const> à <var>playerCount</var> - 1).</p>\n" +
 "                <p><span class=\"statement-lineno\">Ligne 3: </span><var>size</var>, la taille du plateau (<const>6</const>).</p>\n" +
 "            </div>\n" +
 "        </div>\n";
@@ -101,7 +102,7 @@ public class UpdateStatementsFR {
 "            <div class=\"title\">Entrées d'initialisation</div>\n" +
 "            <div class=\"text\">\n" +
 "                <p><span class=\"statement-lineno\">Ligne 1: </span><var>playerCount</var>, le nombre de joueurs dans la partie (<const>3</const> ou <const>4</const>).</p>\n" +
-"                <p><span class=\"statement-lineno\">Ligne 2: </span><var>myId</var>, votre ID de joueur (<const>0</const> à <const>3</const>).</p>\n" +
+"                <p><span class=\"statement-lineno\">Ligne 2: </span><var>myId</var>, votre ID de joueur (<const>0</const> à <var>playerCount</var> - 1).</p>\n" +
 "                <p><span class=\"statement-lineno\">Ligne 3: </span><var>size</var>, la taille du plateau (<const>9</const>).</p>\n" +
 "            </div>\n" +
 "        </div>\n";

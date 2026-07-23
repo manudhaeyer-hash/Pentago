@@ -292,24 +292,10 @@ public class Referee extends AbstractReferee {
                     return;
                 }
 
-                // Pie rule (2-player games only): on their very first move,
-                // the second player may place their marble ON the first
-                // player's marble, stealing that position.
-                boolean pieSteal = false;
-                if (gameManager.getPlayerCount() == 2 && player.getIndex() == 1
-                        && board.countMarbles() == 1
-                        && board.ownerAt(x, y) == 0) {
-                    pieSteal = board.steal(x, y, player.getIndex());
-                }
-                boolean placed = pieSteal || board.place(x, y, player.getIndex());
+                boolean placed = board.place(x, y, player.getIndex());
                 if (!placed) {
                     deactivatePlayer(player, String.format("Invalid placement at %d %d", x, y));
                 } else {
-                    if (pieSteal) {
-                        gameManager.addToGameSummary(player.getNicknameToken()
-                                + " invoked the PIE RULE and stole the marble at "
-                                + x + " " + y);
-                    }
                     drawMarble(x, y, player.getIndex());
                     
                     if (isSwap) {
@@ -566,7 +552,7 @@ public class Referee extends AbstractReferee {
                 Text actionText = playerActionTexts[pIdx];
                 graphicEntityModule.commitEntityState(0.8, actionText);
                 actionText.setText(endText)
-                    .setFillColor(0xffffff)
+                    .setFillColor(playerRanks[pIdx] == 1 ? 0xffd700 : 0xffffff)
                     .setFontSize(50)
                     .setZIndex(104)
                     .setFontWeight(Text.FontWeight.BOLD);
