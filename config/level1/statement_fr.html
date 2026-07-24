@@ -42,21 +42,27 @@
             <p>Les blocs sont numérotés de <const>0</const> à <const>3</const>, et les coordonnées <var>x</var>, <var>y</var> de <const>0</const> à <const>5</const> comme illustré ci-dessous :</p>
             <img src="https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level1/coords_6x6.png" style="width: 100%; max-width: 400px; display: block; margin: 10px auto;" />
       <br />
+      <div style="margin-bottom: 10px;">
+        <h3 style="font-size: 14px; font-weight: 700; padding-top: 15px; color: #838891; padding-bottom: 15px">Règles et Score</h3>
+        <p>Le jeu se termine immédiatement si un joueur forme une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli.</p>
+        <p>Le vainqueur est déterminé par un score final. Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>
+        <ul style="padding-bottom: 0;">
+          <li>Longueur <const>5</const> ou plus : <const>10000</const> points</li>
+          <li>Longueur <const>4</const> : <const>100</const> points</li>
+          <li>Longueur <const>3</const> : <const>10</const> points</li>
+          <li>Longueur <const>2</const> : <const>1</const> point</li>
+          <li>Longueur <const>1</const> : <const>0</const> point</li>
+        </ul>
+        <p>Le joueur avec le score total le plus élevé l'emporte. Si plusieurs joueurs ont le même meilleur score, la partie se termine par une égalité entre ces joueurs.</p>
+      </div>
       <div class="statement-victory-conditions">
         <div class="icon victory"></div>
         <div class="blk">
-          <div class="title">Règles et Score</div>
+          <div class="title">Conditions de Victoire</div>
           <div class="text">
-          <p>Le jeu se termine immédiatement si un joueur forme une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli.</p>
-          <p>Le vainqueur est déterminé par un score final. Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>
           <ul style="padding-bottom: 0;">
-            <li>Longueur <const>5</const> ou plus : <const>10000</const> points</li>
-            <li>Longueur <const>4</const> : <const>100</const> points</li>
-            <li>Longueur <const>3</const> : <const>10</const> points</li>
-            <li>Longueur <const>2</const> : <const>1</const> point</li>
-            <li>Longueur <const>1</const> : <const>0</const> point</li>
+            <li>Avoir le score le plus élevé à la fin de la partie.</li>
           </ul>
-          <p>Le joueur avec le score total le plus élevé l'emporte. Si plusieurs joueurs ont le même meilleur score, la partie se termine par une égalité entre ces joueurs.</p>
           </div>
         </div>
       </div>

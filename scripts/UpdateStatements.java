@@ -39,21 +39,27 @@ public class UpdateStatements {
 
         String vicDefEn = 
 "      <br />\n" +
+"      <div style=\"margin-bottom: 10px;\">\n" +
+"        <h3 style=\"font-size: 14px; font-weight: 700; padding-top: 15px; color: #838891; padding-bottom: 15px\">Scoring Rules</h3>\n" +
+"        <p>The game ends immediately if a player forms a line of 5 marbles of their color, or if the board is completely filled.</p>\n" +
+"        <p>The winner is determined by a final score. For each player, we consider every maximal contiguous line of their marbles in all four directions (horizontal, vertical, and the two diagonals). Each line contributes:</p>\n" +
+"        <ul style=\"padding-bottom: 0;\">\n" +
+"          <li>Length <const>5</const> or more: <const>10000</const> points</li>\n" +
+"          <li>Length <const>4</const>: <const>100</const> points</li>\n" +
+"          <li>Length <const>3</const>: <const>10</const> points</li>\n" +
+"          <li>Length <const>2</const>: <const>1</const> point</li>\n" +
+"          <li>Length <const>1</const>: <const>0</const> points</li>\n" +
+"        </ul>\n" +
+"        <p>The player with the highest total score wins. If multiple players have the same highest score, the game ends in a draw between those players.</p>\n" +
+"      </div>\n" +
 "      <div class=\"statement-victory-conditions\">\n" +
 "        <div class=\"icon victory\"></div>\n" +
 "        <div class=\"blk\">\n" +
-"          <div class=\"title\">Rules &amp; Scoring</div>\n" +
+"          <div class=\"title\">Victory Conditions</div>\n" +
 "          <div class=\"text\">\n" +
-"          <p>The game ends immediately if a player forms a line of 5 marbles of their color, or if the board is completely filled.</p>\n" +
-"          <p>The winner is determined by a final score. For each player, we consider every maximal contiguous line of their marbles in all four directions (horizontal, vertical, and the two diagonals). Each line contributes:</p>\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
-"            <li>Length <const>5</const> or more: <const>10000</const> points</li>\n" +
-"            <li>Length <const>4</const>: <const>100</const> points</li>\n" +
-"            <li>Length <const>3</const>: <const>10</const> points</li>\n" +
-"            <li>Length <const>2</const>: <const>1</const> point</li>\n" +
-"            <li>Length <const>1</const>: <const>0</const> points</li>\n" +
+"            <li>Have the highest score at the end of the game.</li>\n" +
 "          </ul>\n" +
-"          <p>The player with the highest total score wins. If multiple players have the same highest score, the game ends in a draw between those players.</p>\n" +
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +

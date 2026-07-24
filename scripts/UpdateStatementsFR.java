@@ -39,21 +39,27 @@ public class UpdateStatementsFR {
 
         String vicDefFr = 
 "      <br />\n" +
+"      <div style=\"margin-bottom: 10px;\">\n" +
+"        <h3 style=\"font-size: 14px; font-weight: 700; padding-top: 15px; color: #838891; padding-bottom: 15px\">Règles et Score</h3>\n" +
+"        <p>Le jeu se termine immédiatement si un joueur forme une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli.</p>\n" +
+"        <p>Le vainqueur est déterminé par un score final. Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>\n" +
+"        <ul style=\"padding-bottom: 0;\">\n" +
+"          <li>Longueur <const>5</const> ou plus : <const>10000</const> points</li>\n" +
+"          <li>Longueur <const>4</const> : <const>100</const> points</li>\n" +
+"          <li>Longueur <const>3</const> : <const>10</const> points</li>\n" +
+"          <li>Longueur <const>2</const> : <const>1</const> point</li>\n" +
+"          <li>Longueur <const>1</const> : <const>0</const> point</li>\n" +
+"        </ul>\n" +
+"        <p>Le joueur avec le score total le plus élevé l'emporte. Si plusieurs joueurs ont le même meilleur score, la partie se termine par une égalité entre ces joueurs.</p>\n" +
+"      </div>\n" +
 "      <div class=\"statement-victory-conditions\">\n" +
 "        <div class=\"icon victory\"></div>\n" +
 "        <div class=\"blk\">\n" +
-"          <div class=\"title\">Règles et Score</div>\n" +
+"          <div class=\"title\">Conditions de Victoire</div>\n" +
 "          <div class=\"text\">\n" +
-"          <p>Le jeu se termine immédiatement si un joueur forme une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli.</p>\n" +
-"          <p>Le vainqueur est déterminé par un score final. Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
-"            <li>Longueur <const>5</const> ou plus : <const>10000</const> points</li>\n" +
-"            <li>Longueur <const>4</const> : <const>100</const> points</li>\n" +
-"            <li>Longueur <const>3</const> : <const>10</const> points</li>\n" +
-"            <li>Longueur <const>2</const> : <const>1</const> point</li>\n" +
-"            <li>Longueur <const>1</const> : <const>0</const> point</li>\n" +
+"            <li>Avoir le score le plus élevé à la fin de la partie.</li>\n" +
 "          </ul>\n" +
-"          <p>Le joueur avec le score total le plus élevé l'emporte. Si plusieurs joueurs ont le même meilleur score, la partie se termine par une égalité entre ces joueurs.</p>\n" +
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +
