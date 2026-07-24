@@ -220,7 +220,7 @@ public class Board {
                 if (p != -1) currentLength++;
             } else {
                 if (currentPlayer != -1) {
-                    if (currentLength >= 5) scores[currentPlayer] += 500;
+                    if (currentLength >= 5) scores[currentPlayer] += 10000;
                     else if (currentLength == 4) scores[currentPlayer] += 100;
                     else if (currentLength == 3) scores[currentPlayer] += 10;
                     else if (currentLength == 2) scores[currentPlayer] += 1;
@@ -230,7 +230,7 @@ public class Board {
             }
         }
         if (currentPlayer != -1) {
-            if (currentLength >= 5) scores[currentPlayer] += 500;
+            if (currentLength >= 5) scores[currentPlayer] += 10000;
             else if (currentLength == 4) scores[currentPlayer] += 100;
             else if (currentLength == 3) scores[currentPlayer] += 10;
             else if (currentLength == 2) scores[currentPlayer] += 1;

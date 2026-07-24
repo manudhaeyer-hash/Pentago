@@ -422,11 +422,7 @@ public class Referee extends AbstractReferee {
         if (active.size() <= 1) {
             int[] tieBreakScores = board.getTieBreakScores(gameManager.getPlayerCount());
             for (Player p : gameManager.getPlayers()) {
-                if (active.contains(p)) {
-                    p.setScore(1000000 + tieBreakScores[p.getIndex()]);
-                } else {
-                    p.setScore(tieBreakScores[p.getIndex()]);
-                }
+                p.setScore(tieBreakScores[p.getIndex()]);
             }
             gameManager.endGame();
             return;
@@ -464,18 +460,14 @@ public class Referee extends AbstractReferee {
             int maxScore = -2;
             for (Player p : gameManager.getPlayers()) {
                 int finalScore = tieBreakScores[p.getIndex()];
-                if (winners.contains(p.getIndex())) {
-                    finalScore += 1000000;
-                } else if (winners.isEmpty() && p.isActive()) {
-                    // Tie break for surviving players
-                } else if (!p.isActive()) {
+                if (!p.isActive()) {
                     finalScore = -1; // Give crashed players lowest possible score
                 }
                 p.setScore(finalScore);
                 if (finalScore > maxScore) {
                     maxScore = finalScore;
                 }
-                gameManager.addToGameSummary("Player " + p.getNicknameToken() + " final score: " + finalScore + " (Tie-Break: " + tieBreakScores[p.getIndex()] + ")");
+                gameManager.addToGameSummary("Player " + p.getNicknameToken() + " final score: " + finalScore);
             }
 
             // 2. Cinematic Background overlay

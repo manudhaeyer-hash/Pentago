@@ -42,22 +42,18 @@ public class UpdateStatementsFR {
 "      <div class=\"statement-victory-conditions\">\n" +
 "        <div class=\"icon victory\"></div>\n" +
 "        <div class=\"blk\">\n" +
-"          <div class=\"title\">Conditions de Victoire</div>\n" +
+"          <div class=\"title\">Règles et Score</div>\n" +
 "          <div class=\"text\">\n" +
+"          <p>Le jeu se termine immédiatement si un joueur forme une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli.</p>\n" +
+"          <p>Le vainqueur est déterminé par un score final. Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
-"            <li>Former une ligne de 5 billes de votre couleur horizontalement, verticalement ou diagonalement.</li>\n" +
-"          </ul>\n" +
-"          <br>\n" +
-"          <p>Si le plateau est plein, ou si plusieurs joueurs forment une ligne de 5 simultanément, le vainqueur est déterminé par un score de départage.</p>\n" +
-"          <p>Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>\n" +
-"          <ul style=\"padding-bottom: 0;\">\n" +
-"            <li>Longueur <const>5</const> ou plus : <const>500</const> points</li>\n" +
+"            <li>Longueur <const>5</const> ou plus : <const>10000</const> points</li>\n" +
 "            <li>Longueur <const>4</const> : <const>100</const> points</li>\n" +
 "            <li>Longueur <const>3</const> : <const>10</const> points</li>\n" +
 "            <li>Longueur <const>2</const> : <const>1</const> point</li>\n" +
 "            <li>Longueur <const>1</const> : <const>0</const> point</li>\n" +
 "          </ul>\n" +
-"          <p>Le joueur avec le score total le plus élevé l'emporte. Si plusieurs joueurs ont le même meilleur score de départage, la partie se termine par une égalité entre ces joueurs.</p>\n" +
+"          <p>Le joueur avec le score total le plus élevé l'emporte. Si plusieurs joueurs ont le même meilleur score, la partie se termine par une égalité entre ces joueurs.</p>\n" +
 "          </div>\n" +
 "        </div>\n" +
 "      </div>\n" +
