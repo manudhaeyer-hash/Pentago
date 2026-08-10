@@ -305,7 +305,8 @@ public class Referee extends AbstractReferee {
                         if (!swapped) {
                             deactivatePlayer(player, String.format("Invalid swap blocks %d and %d", b1, b2));
                         } else {
-                            gameManager.addToGameSummary(player.getNicknameToken() + " played " + output);
+                            String summary = String.format("%s placed a marble at (%d, %d) and swapped blocks %d and %d", player.getNicknameToken(), x, y, b1, b2);
+                            gameManager.addToGameSummary(summary);
                             playerActionTexts[player.getIndex()].setText(String.format("%d %d %d %d", x, y, b1, b2));
                             animateSwap(b1, b2);
                             updateScoreUI();
@@ -318,7 +319,9 @@ public class Referee extends AbstractReferee {
                         if (!rotated) {
                             deactivatePlayer(player, String.format("Invalid rotation block %d dir %s", block, dir));
                         } else {
-                            gameManager.addToGameSummary(player.getNicknameToken() + " played " + output);
+                            String dirDesc = dir.equals("R") ? "Right" : "Left";
+                            String summary = String.format("%s placed a marble at (%d, %d) and rotated block %d %s", player.getNicknameToken(), x, y, block, dirDesc);
+                            gameManager.addToGameSummary(summary);
                             playerActionTexts[player.getIndex()].setText(String.format("%d %d %d %s", x, y, block, dir));
                             animateRotation(block, dir);
                             updateScoreUI();
