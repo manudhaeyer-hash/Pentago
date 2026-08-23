@@ -256,11 +256,12 @@ topAlertPart2 + goalEn +
 "            <p>On your turn, you must perform exactly two actions:</p>\n" +
 "            <ol>\n" +
 "                <li><strong>Place a marble</strong> on any empty space on the board.</li>\n" +
-"                <li><strong>Manipulate the board</strong> using ONE of the following methods:</li>\n" +
-"                <ul>\n" +
-"                    <li><strong>Rotate</strong> a 3x3 block 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
-"                    <li style=\"color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;\"><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>\n" +
-"                </ul>\n" +
+"                <li><strong>Manipulate the board</strong> using ONE of the following methods:\n" +
+"                    <ul>\n" +
+"                        <li><strong>Rotate</strong> a 3x3 block 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
+"                        <li style=\"color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;\"><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>\n" +
+"                    </ul>\n" +
+"                </li>\n" +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
@@ -316,11 +317,12 @@ topAlertPart2 + goalEn +
 "            <p>On your turn, you must perform exactly two actions:</p>\n" +
 "            <ol>\n" +
 "                <li><strong>Place a marble</strong> on any empty space on the board.</li>\n" +
-"                <li><strong>Manipulate the board</strong> using ONE of the following methods:</li>\n" +
-"                <ul>\n" +
-"                    <li><strong>Rotate</strong> a 3x3 block 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
-"                    <li><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>\n" +
-"                </ul>\n" +
+"                <li><strong>Manipulate the board</strong> using ONE of the following methods:\n" +
+"                    <ul>\n" +
+"                        <li><strong>Rotate</strong> a 3x3 block 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
+"                        <li><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>\n" +
+"                    </ul>\n" +
+"                </li>\n" +
 "            </ol>\n" +
 "            <p>Blocks are numbered <const>0</const> to <const>8</const>, and coordinates <var>x</var>, <var>y</var> from <const>0</const> to <const>8</const> as shown below:</p>\n" +
 "            <img src=\"https://raw.githubusercontent.com/manudhaeyer-hash/Pentago/main/config/level3/coords_9x9.png\" style=\"width: 100%; max-width: 500px; display: block; margin: 10px auto;\" />\n" +
