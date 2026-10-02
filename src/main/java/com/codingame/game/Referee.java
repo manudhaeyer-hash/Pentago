@@ -425,7 +425,11 @@ public class Referee extends AbstractReferee {
         if (active.size() <= 1) {
             int[] tieBreakScores = board.getTieBreakScores(gameManager.getPlayerCount());
             for (Player p : gameManager.getPlayers()) {
-                p.setScore(tieBreakScores[p.getIndex()]);
+                int finalScore = tieBreakScores[p.getIndex()];
+                if (!p.isActive()) {
+                    finalScore = -1; // Give crashed players lowest possible score
+                }
+                p.setScore(finalScore);
             }
             gameManager.endGame();
             return;
