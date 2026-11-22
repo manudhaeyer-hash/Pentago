@@ -40,7 +40,7 @@
                 <li><strong>Manipulate the board</strong> using ONE of the following methods:
                     <ul>
                         <li><strong>Rotate</strong> a 3x3 block 90 degrees either left (counter-clockwise) or right (clockwise).</li>
-                        <li><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>
+                        <li><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge). Each block keeps its contents and orientation: it is moved, not rotated.</li>
                     </ul>
                 </li>
             </ol>
@@ -49,7 +49,7 @@
       <br />
       <div style="margin-bottom: 10px;">
         <h3 style="font-size: 14px; font-weight: 700; padding-top: 15px; color: #838891; padding-bottom: 15px">Scoring Rules</h3>
-        <p>The game ends immediately if a player forms a line of 5 marbles of their color, or if the board is completely filled.</p>
+        <p>The game ends if, at the end of a turn, a player has a line of 5 marbles of their color, or if the board is completely filled. Lines are only checked once the whole turn has been played (placement, then the block move: rotation or swap): a line formed by the placement but broken by the block move does not count, and the block move can also complete lines for other players.</p>
         <p>The winner is determined by a final score. For each player, we consider every maximal contiguous line of their marbles in all four directions (horizontal, vertical, and the two diagonals). Each line contributes:</p>
         <ul style="padding-bottom: 0;">
           <li>Length <const>5</const> or more: <const>10000</const> points</li>
@@ -78,6 +78,7 @@
           <div class="text">
           <ul style="padding-bottom: 0;">
             <li>Your program times out, crashes, or outputs an invalid command.</li>
+            <li>A disqualified player gets a score of -1 and is ranked last.</li>
           </ul>
           </div>
         </div>

@@ -330,13 +330,13 @@ public class Referee extends AbstractReferee {
                     }
                 }
             } else {
-                deactivatePlayer(player, "Invalid output format: " + output);
+                deactivatePlayer(player, "Invalid output format: " + sanitizeForDisplay(output));
             }
         } catch (TimeoutException e) {
             deactivatePlayer(player, "Timeout!");
         } catch (Throwable e) {
             String msg = e.getMessage();
-            deactivatePlayer(player, msg != null ? msg : e.toString());
+            deactivatePlayer(player, sanitizeForDisplay(msg != null ? msg : e.toString()));
         }
 
         advanceTurn();
@@ -617,6 +617,25 @@ public class Referee extends AbstractReferee {
         graphicEntityModule.commitEntityState(0.8, clone);
     }
     
+    private static final int MAX_DISPLAYED_OUTPUT_LENGTH = 40;
+
+    /**
+     * Player output is untrusted: echoing it verbatim into the game summary / tooltips
+     * can overflow the engine's referee output buffer (30 000 bytes) and crash the game.
+     * Keep only printable ASCII and truncate.
+     */
+    private static String sanitizeForDisplay(String text) {
+        if (text == null) return "";
+        int limit = Math.min(text.length(), MAX_DISPLAYED_OUTPUT_LENGTH);
+        StringBuilder sb = new StringBuilder(limit + 3);
+        for (int i = 0; i < limit; i++) {
+            char c = text.charAt(i);
+            sb.append(c >= 0x20 && c < 0x7f ? c : '?');
+        }
+        if (text.length() > limit) sb.append("...");
+        return sb.toString();
+    }
+
     private void deactivatePlayer(Player player, String message) {
         player.deactivate(message);
         player.setScore(-1);

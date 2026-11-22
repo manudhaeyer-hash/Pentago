@@ -41,7 +41,7 @@ public class UpdateStatements {
 "      <br />\n" +
 "      <div style=\"margin-bottom: 10px;\">\n" +
 "        <h3 style=\"font-size: 14px; font-weight: 700; padding-top: 15px; color: #838891; padding-bottom: 15px\">Scoring Rules</h3>\n" +
-"        <p>The game ends immediately if a player forms a line of 5 marbles of their color, or if the board is completely filled.</p>\n" +
+"        <p>The game ends if, at the end of a turn, a player has a line of 5 marbles of their color, or if the board is completely filled. Lines are only checked once the whole turn has been played (placement, then the block move: rotation or swap): a line formed by the placement but broken by the block move does not count, and the block move can also complete lines for other players.</p>\n" +
 "        <p>The winner is determined by a final score. For each player, we consider every maximal contiguous line of their marbles in all four directions (horizontal, vertical, and the two diagonals). Each line contributes:</p>\n" +
 "        <ul style=\"padding-bottom: 0;\">\n" +
 "          <li>Length <const>5</const> or more: <const>10000</const> points</li>\n" +
@@ -70,6 +70,7 @@ public class UpdateStatements {
 "          <div class=\"text\">\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
 "            <li>Your program times out, crashes, or outputs an invalid command.</li>\n" +
+"            <li>A disqualified player gets a score of -1 and is ranked last.</li>\n" +
 "          </ul>\n" +
 "          </div>\n" +
 "        </div>\n" +
@@ -259,7 +260,7 @@ topAlertPart2 + goalEn +
 "                <li><strong>Manipulate the board</strong> using ONE of the following methods:\n" +
 "                    <ul>\n" +
 "                        <li><strong>Rotate</strong> a 3x3 block 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
-"                        <li style=\"color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;\"><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>\n" +
+"                        <li style=\"color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;\"><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge). Each block keeps its contents and orientation: it is moved, not rotated.</li>\n" +
 "                    </ul>\n" +
 "                </li>\n" +
 "            </ol>\n" +
@@ -320,7 +321,7 @@ topAlertPart2 + goalEn +
 "                <li><strong>Manipulate the board</strong> using ONE of the following methods:\n" +
 "                    <ul>\n" +
 "                        <li><strong>Rotate</strong> a 3x3 block 90 degrees either left (counter-clockwise) or right (clockwise).</li>\n" +
-"                        <li><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge).</li>\n" +
+"                        <li><strong>Swap</strong> the positions of two adjacent 3x3 blocks (blocks sharing an edge). Each block keeps its contents and orientation: it is moved, not rotated.</li>\n" +
 "                    </ul>\n" +
 "                </li>\n" +
 "            </ol>\n" +

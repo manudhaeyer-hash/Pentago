@@ -46,7 +46,7 @@
       <br />
       <div style="margin-bottom: 10px;">
         <h3 style="font-size: 14px; font-weight: 700; padding-top: 15px; color: #838891; padding-bottom: 15px">Règles et Score</h3>
-        <p>Le jeu se termine immédiatement si un joueur forme une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli.</p>
+        <p>Le jeu se termine si, à la fin d'un tour, un joueur possède une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli. Les lignes ne sont vérifiées qu'une fois le tour entier joué (pose, puis déplacement de bloc : rotation ou échange) : une ligne formée par la pose mais cassée par le déplacement de bloc ne compte pas, et le déplacement de bloc peut aussi compléter des lignes pour d'autres joueurs.</p>
         <p>Le vainqueur est déterminé par un score final. Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>
         <ul style="padding-bottom: 0;">
           <li>Longueur <const>5</const> ou plus : <const>10000</const> points</li>
@@ -75,6 +75,7 @@
           <div class="text">
           <ul style="padding-bottom: 0;">
             <li>Votre programme dépasse le temps limite, plante ou produit une commande invalide.</li>
+            <li>Un joueur disqualifié reçoit un score de -1 et est classé dernier.</li>
           </ul>
           </div>
         </div>

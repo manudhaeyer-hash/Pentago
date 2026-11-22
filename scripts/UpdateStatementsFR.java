@@ -41,7 +41,7 @@ public class UpdateStatementsFR {
 "      <br />\n" +
 "      <div style=\"margin-bottom: 10px;\">\n" +
 "        <h3 style=\"font-size: 14px; font-weight: 700; padding-top: 15px; color: #838891; padding-bottom: 15px\">Règles et Score</h3>\n" +
-"        <p>Le jeu se termine immédiatement si un joueur forme une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli.</p>\n" +
+"        <p>Le jeu se termine si, à la fin d'un tour, un joueur possède une ligne de 5 billes de sa couleur, ou si le plateau est entièrement rempli. Les lignes ne sont vérifiées qu'une fois le tour entier joué (pose, puis déplacement de bloc : rotation ou échange) : une ligne formée par la pose mais cassée par le déplacement de bloc ne compte pas, et le déplacement de bloc peut aussi compléter des lignes pour d'autres joueurs.</p>\n" +
 "        <p>Le vainqueur est déterminé par un score final. Pour chaque joueur, on considère chaque suite contiguë maximale de ses billes dans les quatre directions (horizontale, verticale et les deux diagonales). Chaque suite contribue ainsi :</p>\n" +
 "        <ul style=\"padding-bottom: 0;\">\n" +
 "          <li>Longueur <const>5</const> ou plus : <const>10000</const> points</li>\n" +
@@ -70,6 +70,7 @@ public class UpdateStatementsFR {
 "          <div class=\"text\">\n" +
 "          <ul style=\"padding-bottom: 0;\">\n" +
 "            <li>Votre programme dépasse le temps limite, plante ou produit une commande invalide.</li>\n" +
+"            <li>Un joueur disqualifié reçoit un score de -1 et est classé dernier.</li>\n" +
 "          </ul>\n" +
 "          </div>\n" +
 "        </div>\n" +
@@ -255,7 +256,7 @@ topAlertPart2 + goalFr +
 "                <li><strong>Manipuler le plateau</strong> en utilisant UNE des méthodes suivantes :\n" +
 "                    <ul>\n" +
 "                        <li><strong>Pivoter</strong> un bloc 3x3 de 90 degrés vers la gauche ou la droite.</li>\n" +
-"                        <li style=\"color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;\"><strong>Échanger (Swap)</strong> les positions de deux blocs 3x3 adjacents (blocs partageant un bord).</li>\n" +
+"                        <li style=\"color: #7cc576; background-color: rgba(124, 197, 118,.1); padding: 2px;\"><strong>Échanger (Swap)</strong> les positions de deux blocs 3x3 adjacents (blocs partageant un bord). Chaque bloc garde son contenu et son orientation : il est déplacé, pas pivoté.</li>\n" +
 "                    </ul>\n" +
 "                </li>\n" +
 "            </ol>\n" +
@@ -317,7 +318,7 @@ topAlertPart2 + goalFr +
 "                <li><strong>Manipuler le plateau</strong> en utilisant UNE des méthodes suivantes :\n" +
 "                    <ul>\n" +
 "                        <li><strong>Pivoter</strong> un bloc 3x3 de 90 degrés vers la gauche ou la droite.</li>\n" +
-"                        <li><strong>Échanger (Swap)</strong> les positions de deux blocs 3x3 adjacents (blocs partageant un bord).</li>\n" +
+"                        <li><strong>Échanger (Swap)</strong> les positions de deux blocs 3x3 adjacents (blocs partageant un bord). Chaque bloc garde son contenu et son orientation : il est déplacé, pas pivoté.</li>\n" +
 "                    </ul>\n" +
 "                </li>\n" +
 "            </ol>\n" +
